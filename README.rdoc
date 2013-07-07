@@ -1,28 +1,31 @@
-== README
+== Note
+This app is still in early development and as such, this readme consists of features not yet implemented.  
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+== Exposition
 
-Things you may want to cover:
+Have you ever wanted a rails app responsible for controling other computers and stuff on your lan?  Say, you have a file server with debian linux, but when it's idling it consumes 52 watts, so you need to be able to shut it down and turn it back on?  Well, one of the features of control switch is a "shutdown" button, so you don't need to login to it with ssh to do `sudo shutdown -h now` and then type in your user password to confirm.  Instead you just navigate to the web app and push the shutdown button.  Then use WOL to boot it back up as needed.  
 
-* Ruby version
+But you could also deploy this app on a low wattage device, and have it be in charge of shutting down and booting up your PCs.  For instance, the Raspberry Pi consumes a mere 3 watts of power.  
 
-* System dependencies
+Other features include a WOL table for booting up LAN PCs.  You can also use the built-in web proxy for, say, changing the settings on your router without needing to VPN over to your home LAN (or install Hamachi Logmein).   
 
-* Configuration
+For Rasberry Pi Users, you can also install media wiki and it's dependencys and get that running on the ultra slim "nginx" web server.  Doesn't that sound snazzy!  
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+I'd like to build in DNS features so you can name your PCs wiki.com and control.com to make reaching your servers that much easier, even if your router is super lame and doesn't let you configure static IP addresses and stuff like that.  
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+== Installation
+
+
+
+To enable shutdowns, you need to create a user group 'wheel' and allow users in that group to be able to shutdown the PC without prompting for a password.  
+
+    $  sudo visudo
+    
+    %wheel      ALL: NOPASSORSOMETHING: /sbin/shutdown
+    
+    $  sudo addgroup wheel
+    $  sudo vi /etc/groups
+    ...
+    wheel:blabla:USER_NAME_RUNNING_RAILS_APP
+

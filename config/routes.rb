@@ -1,5 +1,8 @@
 ControlSwitch::Application.routes.draw do
 
+  get "cmds/shutdown"
+  get "cmds/restart"
+  devise_for :users
   get "pages/home"
   root 'pages#home'
 

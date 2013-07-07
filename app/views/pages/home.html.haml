@@ -1,5 +1,6 @@
-<h1>Control Switch</h1>
-<p>This is a lovely app for getting info and controlling a cool system.</p>
+%h1 Control Switch
+%p This is a lovely app for getting info and controlling a cool system.
 
 %div.controls
-  <button>Shutdown</button>
+  -#=button_to "your link", '#', :onclick => "btnShutdown()"
+  =button_tag "shutdown", :type => "button", :onclick => "btnShutdown()"
