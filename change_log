@@ -1,8 +1,9 @@
 == Future Version 0.?.? ==
--I used devise for logins and wrote and added an 'admin' column which get's checked in the admins_only! controller helper
-
 -I need to interface with tripwire h/w
 -I need to get FAYE working so I can update the browser view when a trip wire is tripped
+
+== Version 0.0.1 2170847 ==
+-I used devise for logins and wrote and added an 'admin' column which get's checked in the admins_only! controller helper
 
 == Version 0.0.0 ==
 -Created app, it does shutdowns.  
