@@ -1,5 +1,6 @@
 == Future Version 0.?.? ==
--Looks like I'm setting up logins... am I following a tut?  git diff HEAD isn't showing anything helpful...
+-I used devise for logins and wrote and added an 'admin' column which get's checked in the admins_only! controller helper
+
 -I need to interface with tripwire h/w
 -I need to get FAYE working so I can update the browser view when a trip wire is tripped
 
