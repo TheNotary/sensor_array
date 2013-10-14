@@ -32,6 +32,7 @@ gem 'turbolinks'
 
 gem "devise"
 gem 'protected_attributes'
+gem "wiringpi"
 
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

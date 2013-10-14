@@ -1,12 +1,15 @@
 ControlSwitch::Application.routes.draw do
 
+  get "pages/wiringpi"
+  get "/fail", :to => 'pages#fail'
   get "cmds/shutdown"
   get "cmds/restart"
   devise_for :users
   get "pages/home"
   root 'pages#home'
   
-  get "/fail", :to => 'pages#fail'
+  
+  
   
   # match "/fail", :to "pages#fail"
 

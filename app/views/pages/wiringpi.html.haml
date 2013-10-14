@@ -1,0 +1,8 @@
+%h1 WiringPi Page
+%div This page is for checking the status of General Input/Output pins on the hardware running this web application
+
+%div
+  = "Hello from rails..."
+  - io = WiringPi::GPIO.new
+  = io.read(17)
+  
