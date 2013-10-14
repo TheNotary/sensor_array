@@ -1,0 +1,7 @@
+== Future Version 0.?.? ==
+-Looks like I'm setting up logins... am I following a tut?  git diff HEAD isn't showing anything helpful...
+-I need to interface with tripwire h/w
+-I need to get FAYE working so I can update the browser view when a trip wire is tripped
+
+== Version 0.0.0 ==
+-Created app, it does shutdowns.  
