@@ -4,3 +4,10 @@
 %div.controls
   -#=button_to "your link", '#', :onclick => "btnShutdown()"
   =button_tag "shutdown", :type => "button", :onclick => "btnShutdown()"
+  =button_tag "Snap Photo", :type => "button", :onclick => "btnSnapPhoto()"
+
+
+
+.video_screen
+  %img#camera
+

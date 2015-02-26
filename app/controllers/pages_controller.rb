@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   def home
     
-    admins_only!
+    #admins_only!
     
   end
   
