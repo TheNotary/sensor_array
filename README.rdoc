@@ -1,6 +1,10 @@
 == Note
 This app is still in early development and as such, this readme consists of features not yet implemented.  
 
+== My Raspberry Pi Development Rails App
+
+This repo is quickly becoming everything I develop or prototype on my Raspberry Pi.  
+
 == Exposition
 
 Have you ever wanted a rails app responsible for controling other computers and stuff on your lan?  Say, you have a file server with debian linux, but when it's idling it consumes 52 watts, so you need to be able to shut it down and turn it back on?  Well, one of the features of control switch is a "shutdown" button, so you don't need to login to it with ssh to do `sudo shutdown -h now` and then type in your user password to confirm.  Instead you just navigate to the web app and push the shutdown button.  Then use WOL to boot it back up as needed.  
