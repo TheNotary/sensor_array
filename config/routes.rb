@@ -1,5 +1,8 @@
 ControlSwitch::Application.routes.draw do
 
+  get "api/snap_photo", :to => "api#snap_photo"
+  
+  
   get "pages/wiringpi"
   get "/fail", :to => 'pages#fail'
   get "cmds/shutdown"

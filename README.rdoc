@@ -5,7 +5,24 @@ This app is still in early development and as such, this readme consists of feat
 
 This repo is quickly becoming everything I develop or prototype on my Raspberry Pi.  
 
-== Exposition
+
+
+== Notes on video stream
+
+Security cameras can be laggy, who cares, just so long as the data comes in at the proper rate.  
+But if you need to steer around a robot, you need close to real time.
+
+So for quick and dirty (laggy) use http://blog.miguelgrinberg.com/post/how-to-build-and-run-mjpg-streamer-on-the-raspberry-pi 
+But don't DL from sourceforge, that webpage should be hauled away as garbage.  
+Instead use this fork https://github.com/TheNotary/mjpg-streamer to compile the mjpeg-streamer from.  
+
+For robotic control, use https://www.youtube.com/watch?v=xmE99sHBgy0 instead because you can't fly with lag!  
+
+
+
+
+
+== Exposition (old old writing)
 
 Have you ever wanted a rails app responsible for controling other computers and stuff on your lan?  Say, you have a file server with debian linux, but when it's idling it consumes 52 watts, so you need to be able to shut it down and turn it back on?  Well, one of the features of control switch is a "shutdown" button, so you don't need to login to it with ssh to do `sudo shutdown -h now` and then type in your user password to confirm.  Instead you just navigate to the web app and push the shutdown button.  Then use WOL to boot it back up as needed.  
 

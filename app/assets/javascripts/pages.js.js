@@ -8,16 +8,21 @@ function btnShutdown(){
 function btnSnapPhoto(){
   // Do ajax req to tell raspberry to take a picture and put it in public/snap.jpeg
   var jqxhr = $.get( "/api/snap_photo", function( data ) {
-      alert( "Load was performed." + data );
+  	  // Refresh the jpeg
+      $("#camera").attr('src', '');
+      $("#camera").attr('src', '/tmp/snap.jpg');
+      //alert( "Load was performed." + data );
+      print("snapped photo!");
     })
      .fail(function() {
-       alert( "error" );
+       print("something went wrong snapping photo!");
      });
 
+  print("snapping photo, this may take a few seconds...");
 
-  // wait for ajax response to return true
+  
+}
 
-  // Refresh the jpeg
-  $("#camera").attr('src', '');
-  $("#camera").attr('src', '/tmp/snap.jpg');
+function print(msg){
+	$(".console .line").html(msg);
 }
