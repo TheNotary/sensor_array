@@ -1,3 +1,8 @@
+PATH
+  remote: /home/pi/dev/ruby/ruby_pi_tc
+  specs:
+    ruby_pi_tc (0.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -144,6 +149,7 @@ DEPENDENCIES
   jquery-rails
   protected_attributes
   rails (= 4.0.0)
+  ruby_pi_tc!
   sass-rails (~> 4.0.0)
   sdoc
   sqlite3

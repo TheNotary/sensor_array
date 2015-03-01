@@ -19,6 +19,37 @@ Instead use this fork https://github.com/TheNotary/mjpg-streamer to compile the 
 For robotic control, use https://www.youtube.com/watch?v=xmE99sHBgy0 instead because you can't fly with lag!  
 
 
+== Notes on LCD
+
+At present, I have an adafruit 16x2 LCD + keypad kit.  
+That uses an i2c controller rather than other methods that use the pi itself to drive the LCD.  
+http://www.adafruit.com/products/1115
+
+
+== Notes on GIOP States
+
+If you need lots of states (like to detect status of many motion detectors or door bells or what have you) you'll want to expand the number of GIO pins on the board (the things that let you poll state).  
+Buy http://www.adafruit.com/product/732
+Complete tutorial here https://learn.adafruit.com/mcp230xx-gpio-expander-on-the-raspberry-pi
+
+
+
+
+== Notes on Audio Recording
+
+Record Multiple Mics:
+http://www.instructables.com/id/Multi-Mic-Speech-To-Text-with-Python/
+
+
+http://www.adafruit.com/products/1381
+
+Mic -> Amp -> USB Audio Jack -> Raspberry Pi
+
+It encodes to a Micro SD card... I think GPIOs alternatively.  
+
+
+
+
 
 
 
