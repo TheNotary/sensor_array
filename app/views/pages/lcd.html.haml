@@ -1,0 +1,15 @@
+%h1 LCD
+
+%p 
+  After assembled and installed correctly,
+  your lcd plate can be instructed to display characters on screen.  
+  Use the form below to access this feature.  
+
+%textarea#lcd_msg
+
+%button{:onclick => "printToLcd($('#lcd_msg').val())"} Put on LCD
+
+%button{:onclick => "printToLcd('--off')"} Turn off LCD
+
+
+=render 'console'

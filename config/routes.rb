@@ -1,5 +1,6 @@
 ControlSwitch::Application.routes.draw do
 
+  get "api/print_to_lcd", :to => "api#print_to_lcd"
   get "api/snap_photo", :to => "api#snap_photo"
   
   
@@ -9,6 +10,7 @@ ControlSwitch::Application.routes.draw do
   get "cmds/restart"
   devise_for :users
   get "pages/time_clock"
+  get "pages/lcd"
   get "pages/home"
   root 'pages#home'
   
