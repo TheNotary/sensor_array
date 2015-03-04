@@ -69,6 +69,23 @@ For Rasberry Pi Users, you can also install media wiki and it's dependencys and 
 I'd like to build in DNS features so you can name your PCs wiki.com and control.com to make reaching your servers that much easier, even if your router is super lame and doesn't let you configure static IP addresses and stuff like that.  
 
 
+
+== Boot When Pi Boots
+
+Check out the init.d script in docs/control_switch.init.d.  Copy that into /etc/init.d/control_switch.  
+Once that's done you should be able to start and stop the server just like a proper service
+
+    /etc/init.d/control_switch start
+
+To get it to boot when the server boots, you'll need to run the below command:
+
+    sudo update-rc.d control_switch defaults
+
+To not have the app boot when the pi boots (to speed up the boot process) run:
+
+    sudo update-rc.d -f control_switch remove
+
+
 == Installation
 
 
