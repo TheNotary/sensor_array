@@ -1,5 +1,5 @@
 PATH
-  remote: /home/pi/dev/ruby/ruby_pi_tc
+  remote: ~/dev/ruby/ruby_pi_tc/
   specs:
     ruby_pi_tc (0.0.1)
 

@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 gem 'thin'
 
-gem 'ruby_pi_tc', path: '/home/pi/dev/ruby/ruby_pi_tc/'
+gem 'ruby_pi_tc', path: "~/dev/ruby/ruby_pi_tc/"
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
