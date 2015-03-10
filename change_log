@@ -1,5 +1,10 @@
 == Future Version 0.?.? ==
 -I need to interface with tripwire h/w
+--Looking at http://elinux.org/File:EGHS-PullUpDownSwitchProtected.jpg
+--Looking at http://issuu.com/themagpi/docs/the_magpi_issue_2_final
+--I'm watching http://www.youtube.com/watch?v=BxA7qwmY9mg good suppliment
+--This has stuff... but nothing applicable http://learn.adafruit.com/category/learn-raspberry-pi
+
 -I need to get FAYE working so I can update the browser view when a trip wire is tripped
 
 == Version 0.0.1 2170847 ==
