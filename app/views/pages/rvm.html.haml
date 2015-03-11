@@ -4,20 +4,37 @@
 
 
 %h6 General Stuff
+
+Refs:
+%ul
+  %li=link_to "lots of h/w enabling stuff GPIO, i2c, SPI, Serial Rx/Tx", "https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/overview"
+  %li=link_to "Audio Related", "https://learn.adafruit.com/playing-sounds-and-using-buttons-with-raspberry-pi/overview"
+
+
 %pre
   =preserve do
     :escaped
-      $ sudo apt-get install i2c-tools
+      $ sudo apt-get install i2c-tools # Gave up, too many file edits to copy/past right now
+
+
+%h6 Install Wiring Pi
+%p
+  Wiring Pi is a GPIO access library written in C specifically for use with the Raspberry Pi (or anything else based on the BCM2835 CPU).  
+  Basically what it does is let you interact with all those GPIO pins on the RPi.  
+  You can blink lights, detect button presses, and do more complex stuff, I think even use the PWM pin to dim an LED and such.  
+
+http://wiringpi.com/download-and-install/
+
 
 %h6 Installing RVM
-
 %p
   Before you can install this web app, you need to get a good ruby development environment up and running.
   At first glance it seems that raspbian ships with a version of ruby in the package repository that doesn't have any gems,
   or any way to install gems... that's like... not a very effective ruby install.  
   So delete it and get rvm online.  
-  
-(ref: http://computers.tutsplus.com/tutorials/how-to-install-ruby-on-rails-on-raspberry-pi--cms-21421)
+
+ref: http://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0CB4QFjAA&url=http%3A%2F%2Fcomputers.tutsplus.com%2Ftutorials%2Fhow-to-install-ruby-on-rails-on-raspberry-pi--cms-21421&ei=Q4z_VNTkHs_Xau65gvgF&usg=AFQjCNHwf9l5kpD0vCLZuh6lpjtYIz-Xfw&bvm=bv.87611401,d.d2s
+ref: http://computers.tutsplus.com/tutorials/how-to-install-ruby-on-rails-on-raspberry-pi--cms-21421
 %pre
   =preserve do
     :escaped
