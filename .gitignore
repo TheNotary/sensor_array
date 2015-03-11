@@ -15,6 +15,7 @@
 /log/*.log
 /tmp
 .project
+.pydevproject
 
 public/tmp
 *.swp
