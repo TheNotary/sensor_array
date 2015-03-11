@@ -1,0 +1,53 @@
+%h1 Check Pin State
+
+%p
+  This page uses the worderful code at 
+  =link_to "WiringPi", "http://wiringpi.com/download-and-install/" 
+  to check the state of some of the GPIO Pins.  
+  This can be useful for instance, by connecting your pi to a magnetic door or window sensor to tell you when someone enters a room.  
+  
+
+%h6 Resources
+%ul
+  %li=link_to "Forum Chatter", "http://www.raspberrypi.org/forums/viewtopic.php?f=37&t=58267"
+  
+
+%h6 Circut
+%pre
+  =preserve do
+    :escaped
+      A GPIO Pin (eg 11,12,13,15,16, 18 or 22) 
+                     |
+                     |
+                     |
+      An (optional) 1-10k ohm resistor to prevent damage incase pin is set to output/ write
+                     |
+              Magnetic Switch
+                     |
+                Gnd (pin 6)
+
+
+
+%img{src:"/images/raspberry-pi-rev2-gpio-pinout.jpg"}
+ 
+  
+  
+%h6 Code
+%pre
+  =preserve do
+    :escaped
+      from RPi.GPIO import GPIO
+      pin_to_check = 11
+      GPIO.setmode(GPIO.BOARD)  # the pin numbers refer to the board connector not the chip
+      GPIO.setup(pin_to_check, GPIO.INPUT, GPIO.PUD_UP) # set up pin  (one of the above listed pins) as an input with a pull-up resistor
+      
+      if GPIO.input(pin_to_check):
+          print "switch is open"
+      else:
+          print "switch is closed"
+
+
+
+
+
+
