@@ -11,6 +11,7 @@ ControlSwitch::Application.routes.draw do
   get "cmds/shutdown"
   get "cmds/restart"
   devise_for :users
+  get "pages/rvm"
   get "pages/check_pin_state"
   get "pages/camera"
   get "pages/ir"
