@@ -1,7 +1,4 @@
 %h1 Installing Prerequisits
-  
-
-
 
 %h6 General Stuff
 
@@ -29,20 +26,35 @@ http://wiringpi.com/download-and-install/
 %h6 Installing RVM
 %p
   Before you can install this web app, you need to get a good ruby development environment up and running.
-  At first glance it seems that raspbian ships with a version of ruby in the package repository that doesn't have any gems,
+  At first glance it seems that raspbian ships with a version of ruby in the package repository that doesn't even have any gems,
   or any way to install gems... that's like... not a very effective ruby install.  
-  So delete it and get rvm online.  
+  Bless the Raspbian package maintaniners for trying, but we need to delete their system install, and get rvm installed which is the only official package installer for ruby.  
 
 ref: http://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0CB4QFjAA&url=http%3A%2F%2Fcomputers.tutsplus.com%2Ftutorials%2Fhow-to-install-ruby-on-rails-on-raspberry-pi--cms-21421&ei=Q4z_VNTkHs_Xau65gvgF&usg=AFQjCNHwf9l5kpD0vCLZuh6lpjtYIz-Xfw&bvm=bv.87611401,d.d2s
 ref: http://computers.tutsplus.com/tutorials/how-to-install-ruby-on-rails-on-raspberry-pi--cms-21421
 %pre
   =preserve do
     :escaped
+      # This removes the debian installation of ruby.. ruby is barely useful without rvm
       $ sudo apt-get remove ruby
-      $ sudo apt-get update
-      $ sudo apt-get install git curl zlib1g-dev subversion openssl libreadline6-dev git-core zlib1g libssl-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf automake libtool bison
       
-      $ curl -L get.rvm.io | bash -s stable --rails
+      # this will install rvm/ruby's dependencies
+      $ sudo apt-get update
+      $ sudo apt-get install git curl zlib1g-dev subversion openssl libreadline6-dev git-core zlib1g libssl-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf automake libtool bison ruby1.9.1-dev
+      
+      # this is the validity key for RVM used to ensure you're installing the correct code
+      $ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+      $ \curl -sSL https://get.rvm.io | bash -s stable
+
+      # NOTE:  To start using RVM you need to run `source /home/pi/.rvm/scripts/rvm`
+      # in all your open shell windows, in rare cases you need to reopen all shell windows.
+      
+      # This part will install any dependencies we missed, then install ruby 2.1.x and set it to be the default ruby
+      $ rvm requirements && rvm install 2.1 && rvm use 2.1 --default
+      
+      
+
+
 
 
 

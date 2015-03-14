@@ -1,16 +1,16 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails', '4.0.4'
 gem 'thin'
 
-gem 'ruby_pi_tc', path: "~/dev/ruby/ruby_pi_tc/"
+gem 'ruby_pi_tc', path: "~/dev/ruby/ruby_pi_tc/" if File.exists?(".using_clocker")
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails', '~> 4.0.2'
 gem 'haml'
 gem 'haml-rails'
 

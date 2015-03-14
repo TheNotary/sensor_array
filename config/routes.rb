@@ -13,6 +13,8 @@ ControlSwitch::Application.routes.draw do
   devise_for :users
   get "pages/check_pin_state"
   get "pages/camera"
+  get "pages/ir"
+  get "pages/electronics_lab"
   get "pages/time_clock"
   get "pages/lcd"
   get "pages/home"

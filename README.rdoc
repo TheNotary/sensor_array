@@ -36,6 +36,10 @@ Buy http://www.adafruit.com/product/732
 Complete tutorial here https://learn.adafruit.com/mcp230xx-gpio-expander-on-the-raspberry-pi
 
 
+== Time Clocker
+
+This is a secret project.  To enable it, do touch .using_clocker and put clocker's source code in ~/dev/ruby/tc_ruby or w/e it says in gem file.  The source isn't ready yet though.  
+
 
 
 == Notes on Audio Recording
