@@ -6,6 +6,23 @@
 %ul
   %li
     =link_to "Raspi IP Camera Solution (h.264 streams)", "http://www.sonsoftone.com/?page_id=287"
+  %li
     =link_to "Quick Dirty (Booty) mjpeg streaming", "http://jacobsalmela.com/raspberry-pi-webcam-using-mjpg-streamer-over-internet/"
-    
+  %li
+    =link_to "project: motion sensative camera", "http://www.instructables.com/id/Raspberry-Pi-Motion-Sensitive-Camera/?utm_source=base&utm_medium=related-instructables&utm_campaign=related_test"
+
+.controls
+  =button_tag "Snap Photo", :type => "button", :onclick => "btnSnapPhoto()"
+
+=render 'console'
+
+.video_screen
+  %img#camera
+
+%h6 Accessories/ cams
+%ul
+  %li=link_to "3D printed lense adaptor", "http://www.thingiverse.com/thing:439386"
   
+
+
+

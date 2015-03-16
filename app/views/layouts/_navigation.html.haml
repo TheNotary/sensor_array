@@ -9,33 +9,26 @@
       %a.navbar-brand{:href => "/"} Sensor Array
     #navbar.navbar-collapse.collapse
       %ul.nav.navbar-nav
-        %li.active= link_to "Electronics Lab Essentials", "/pages/electronics_lab"
-        %li= link_to "Installing RVM", "/pages/rvm"
-        %li= link_to "Time Clocker", "/pages/time_clock"
-        %li= link_to "LCD Control", "/pages/lcd"
-        %li= link_to "Camera and Vid Streaming", "/pages/camera"
-        %li= link_to "Check Pin States", "/pages/check_pin_state"
-        %li= link_to "Infra-Red Signal Detection", "/pages/ir"
-      
-        
+        %li.active= link_to "LCD Control", "/pages/lcd"
+        %li= link_to "Time Clocker", "/pages/time_clock" if File.exists?('.using_clocker')
+        %li= link_to "Configure RPi", "/pages/rvm"
       
         %li.dropdown
           %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-            Dropdown
+            Labs & Tutorials
             %span.caret
           %ul.dropdown-menu{:role => "menu"}
-            %li
-              %a{:href => "#"} Action
-            %li
-              %a{:href => "#"} Another action
-            %li
-              %a{:href => "#"} Something else here
+            %li.dropdown-header Equipment
+            %li= link_to "Electronics Lab Essentials & Suggestions", "/pages/electronics_lab"
             %li.divider
-            %li.dropdown-header Nav header
-            %li
-              %a{:href => "#"} Separated link
-            %li
-              %a{:href => "#"} One more separated link
+            %li.dropdown-header Labs
+            %li= link_to "Camera and Vid Streaming", "/pages/camera"
+            %li= link_to "Check Pin States", "/pages/check_pin_state"
+            %li= link_to "Infra-Red Signal Detection", "/pages/ir"
+            %li= link_to "Chicken Coop Door", "/pages/coop"
+            %li= link_to "Motors", "/pages/motors"
+        
+        
               
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?

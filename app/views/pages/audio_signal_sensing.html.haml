@@ -1,0 +1,64 @@
+%h6 Theory
+%p
+  What we want to do is record audio with our Pi.  
+  Sound can be translated into voltage using a speaker.  
+  For this lab, think of sound as 
+  %strong audio pressure, 
+  and specifically the fact that when we speak, we are creating fluxuations in 
+  %strong audio pressure 
+  over time.  
+  When a loud noise occurs, audio pressure pushes a microphone back moving the speaker driver back. 
+  This in turn creates a negative voltage across it's leads.  
+  When the audio pressure lets up, the speaker returns to it's original position, creating a positive voltage across the microphone's leads.  
+  That's more or less the mechanics of how sound is converted into an electronic form known as 
+  %strong pulse code modulation.  
+
+%p
+  To record sound, the voltage across a microphone's leads is measured by an 
+  %strong analog to digital converter (ADC)
+  many times per second.  
+  If the ADC is able to take measurements quickly enough, the soundwaves manipulating the microphone will be congruent with what the microphone actually heard.  
+  A phone conversation is sampled 8,000 times per second (8,000hz).  
+  Phones sound grainy and suck, many times you have to tell the person speaking to you to say something again due to the poor quality.  
+  Whereas audio from a CD is sampled (and reproduced) at a rate of 44,100 times per second (44.1 khz).  
+  CD audio sounds much nicer because of this.  
+  
+%p
+  Telephones suck for another reason; when they store and transfer microphone sound digitally, 
+  the exact voltage level is rounded so that it fits in an 8bit number so that it takes up less space.  
+  This processes of rounding is called quantization and in the industry, telephone grade audio is refered to as having an  
+  %strong 8 bit depth.  
+  CDs are usually 16bit.  
+  So with the horribly telephone bit depth, we record the microphone as being in one of 255 positions (255 is the max value of an 8 bit number).
+  CDs on the other hand can describe a microphone position as being one of 65,535.  
+  Truly, telephones are laughably pathetic devices.  
+  What's worse than phones?  
+  Well, internal PC Speakers, those connected directly to motherboard header pins can only produce a sample rate around 1,193.18 kHz.  
+  What's interesting is that it's a 1 bit DAC.  
+  That means it can be up or down, it just has two positions.  
+  Using 
+  %strong pulse width modulation (PWM)
+  it's possible to move the speaker into 'in between positions' to play more than just square waves like those buzzes and beeps internal speakers are renouned for.  
+
+%p
+  In conclusion, to accomplish our goal of collecting an audio signal with the Pi, we will need an ADC capable of at least 8,000 hz per second
+
+%ul
+  %li=link_to "About line level", "http://en.wikipedia.org/wiki/Line_level"
+  %li=link_to "About sampling rating", "http://en.wikipedia.org/wiki/Sampling_%28signal_processing%29#Sampling_rate"
+  %li=link_to "Enjoyable Read on the Workings of Speakers", "http://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=8&ved=0CFAQFjAH&url=http%3A%2F%2Flinux.omnipotent.net%2Farticle.php%3Farticle_id%3D12197%26page%3D-1&ei=pwEFVYjTOcOUNta6g9gC&usg=AFQjCNH-b1oQevEh_vY3Prmpy7xlSaTqWQ&bvm=bv.88198703,d.eXY&cad=rja"
+  %li=link_to "Bit Banging...", "http://www.instructables.com/id/Bitbanging-step-by-step-Arduino-control-of-WS2811-/?ALLSTEPS"
+
+%h6 Helpful Circuits to Know
+%ul  
+  %li=link_to "Convert Line Level to mic level", "http://electronics.stackexchange.com/questions/29564/circuit-to-convert-line-level-to-mic-level"
+  %li=link_to "Convert mic level to ~line", "https://lowvoltage.wordpress.com/2011/05/21/lm358-mic-amp/"
+  %li=link_to "Another Preamp circuit", "http://electronics.stackexchange.com/questions/110350/pre-amplifying-electret-microphone-for-adc-input"
+  
+%ul  
+  %li=link_to "Tut Using MCP3008 manually", "http://hertaville.com/2013/07/24/interfacing-an-spi-adc-mcp3008-chip-to-the-raspberry-pi-using-c/"
+  %li=link_to "$18 The Baart ADC-8", "http://www.ebay.ca/itm/8-Channel-12-bit-FAST-Analog-to-Digital-Convertor-ADC-Raspberry-Pi-SPI-MCP3208-/191512252631?pt=LH_DefaultDomain_3&hash=item2c970510d7"
+  %li=link_to "About Baart", "http://www.raspberrypi.org/forums/viewtopic.php?f=93&t=78551"
+  %li=link_to "The oscilloscope on page 4 can be used to record osund... but it brings the network down in doing so...", "http://www.themagpi.com/issue/issue-24/"  
+
+

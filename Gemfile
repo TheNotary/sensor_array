@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
 gem 'thin'
+gem 'faye'
 
 gem 'ruby_pi_tc', path: "~/dev/ruby/ruby_pi_tc/" if File.exists?(".using_clocker")
 
@@ -35,6 +36,8 @@ gem 'turbolinks'
 gem "devise"
 gem 'protected_attributes'
 gem "wiringpi"
+
+gem "pry"
 
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

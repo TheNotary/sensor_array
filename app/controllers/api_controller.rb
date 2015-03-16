@@ -11,15 +11,18 @@ class ApiController < ActionController::Base
     turn_off = params[:off]
     turn_on = params[:on]
     
-    lcd_control_command = "sudo python /home/pi/dev/python/Adafruit_Python_CharLCD/examples/lcd_cli.py"
+    # sudo -n makes it error out if you need a password
+    lcd_control_command = "sudo -n python /home/pi/dev/python/Adafruit_Python_CharLCD/examples/lcd_cli.py"
     
     if turn_off
-      `#{lcd_control_command} --off`
+      lcd_control_command += " --off"
     else
-      `#{lcd_control_command} #{msg}`
+      lcd_control_command += " #{msg}"
     end
     
+    result = spawn lcd_control_command
     
+    binding.pry
 
     render text: "ok"
   end
