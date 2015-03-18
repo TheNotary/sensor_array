@@ -9,7 +9,7 @@ Bundler.require(:default, Rails.env)
 module ControlSwitch
   class Application < Rails::Application
 
-    config.middleware.use Faye::RackAdapter, :mount => '/faye', :timeout => 25
+    # config.middleware.use Faye::RackAdapter, :mount => '/faye', :timeout => 25
 
   end
 end
