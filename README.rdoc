@@ -1,5 +1,7 @@
 == Starting This App
 
+Try compiled faye bayeux server running via init.d, slow boot with faye as middleware.  Ruby faye might work if it's standalone.  
+
 This is pretty much just a run of the mill rails application.  Clone, bundle, rake db:migrate, and then launch the server.  The only odd thing about this app is that you can't run it in development mode because it uses websockets on some of the cooler pages.  
 
     $  bundle install
