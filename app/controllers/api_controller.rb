@@ -20,6 +20,17 @@ class ApiController < ActionController::Base
       lcd_control_command += " #{msg}"
     end
     
+    # handle_lcd_in_thread(lcd_control_command)
+    `#{lcd_control_command}`
+    
+    render text: "ok"
+  end
+  
+  def have_sudo?
+    system("sudo -n true 2>/dev/null;")
+  end
+  
+  def handle_lcd_in_thread(lcd_control_command)
     Thread.new do
       if have_sudo?
         spawn lcd_control_command
@@ -28,13 +39,6 @@ class ApiController < ActionController::Base
         FayeUtility.log("Error: Don't have sudo... You must not be running on the actual pi?")
       end
     end
-    
-    
-    render text: "ok"
-  end
-  
-  def have_sudo?
-    system("sudo -n true 2>/dev/null;")
   end
   
 end

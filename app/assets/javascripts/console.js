@@ -32,15 +32,17 @@ function print(msg){
 	$(".console .line").html(msg);
 }
 
+function setupFayeForConsole(){
+  var port = location.port;
+  var channel = "console";
+  var client = fayeUtility.createNewFayeClient("localhost", port);
 
-var port = location.port;
-var channel = "console";
-var client = fayeUtility.createNewFayeClient("localhost", port);
+  client.subscribe('/' + channel, function(message) {
+    print(message.text);
+  });
+}
 
-client.subscribe('/' + channel, function(message) {
-  print(message.text);
-});
-
-
+// Uncomment below to use faye
+// setupFayeForConsole();
 
 
