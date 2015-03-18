@@ -20,11 +20,21 @@ class ApiController < ActionController::Base
       lcd_control_command += " #{msg}"
     end
     
-    result = spawn lcd_control_command
+    Thread.new do
+      if have_sudo?
+        spawn lcd_control_command
+        FayeUtility.log("Printed to LCD.")
+      else
+        FayeUtility.log("Error: Don't have sudo... You must not be running on the actual pi?")
+      end
+    end
     
-    binding.pry
-
+    
     render text: "ok"
+  end
+  
+  def have_sudo?
+    system("sudo -n true 2>/dev/null;")
   end
   
 end

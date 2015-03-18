@@ -1,5 +1,12 @@
-== Note
-This app is still in early development and as such, this readme consists of features not yet implemented.  
+== Starting This App
+
+This is pretty much just a run of the mill rails application.  Clone, bundle, rake db:migrate, and then launch the server.  The only odd thing about this app is that you can't run it in development mode because it uses websockets on some of the cooler pages.  
+
+    $  bundle install
+    $  bundle exec rake db:migrate
+    $  rails server -e production
+
+Once that's out of the way, you should be able to navigate to 127.0.0.1:3000 in a web browser...  oh and if you do that on your pi, plugin your pi's address and you can navigate to it from your laptop/ PC.  
 
 == My Raspberry Pi Development Rails App
 
