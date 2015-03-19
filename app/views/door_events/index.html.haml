@@ -1,0 +1,21 @@
+%h1 Listing door_events
+
+%table
+  %tr
+    %th Event type
+    %th Sensor name
+    %th
+    %th
+    %th
+
+  - @door_events.each do |door_event|
+    %tr
+      %td= door_event.event_type
+      %td= door_event.sensor_name
+      %td= link_to 'Show', door_event
+      %td= link_to 'Edit', edit_door_event_path(door_event)
+      %td= link_to 'Destroy', door_event, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Door event', new_door_event_path

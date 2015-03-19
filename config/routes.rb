@@ -1,5 +1,7 @@
 ControlSwitch::Application.routes.draw do
 
+  resources :door_events
+
   get "api/print_to_lcd", :to => "api#print_to_lcd"
   get "api/snap_photo", :to => "api#snap_photo"
   

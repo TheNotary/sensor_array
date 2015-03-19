@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Event type:
+  = @door_event.event_type
+%p
+  %b Sensor name:
+  = @door_event.sensor_name
+
+= link_to 'Edit', edit_door_event_path(@door_event)
+\|
+= link_to 'Back', door_events_path
