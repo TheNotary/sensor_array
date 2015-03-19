@@ -9,7 +9,11 @@ Bundler.require(:default, Rails.env)
 module ControlSwitch
   class Application < Rails::Application
 
-    # config.middleware.use Faye::RackAdapter, :mount => '/faye', :timeout => 25
+    #config.middleware.delete "ActionDispatch::ShowExceptions"
+    #config.middleware.delete "ActionDispatch::DebugExceptions"
+    #config.middleware.delete "ActionDispatch::Flash"
+    #config.middleware.delete "ActionDispatch::BestStandardsSupport"
+    #config.middleware.use Faye::RackAdapter, :mount => '/faye', :timeout => 25
 
   end
 end

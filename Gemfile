@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
 gem 'thin'
-gem 'faye'
+#gem 'faye'
 
 gem 'ruby_pi_tc', path: "~/dev/ruby/ruby_pi_tc/" if File.exists?(".using_clocker")
 
