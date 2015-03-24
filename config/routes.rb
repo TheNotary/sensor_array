@@ -5,6 +5,7 @@ ControlSwitch::Application.routes.draw do
   get "api/print_to_lcd", :to => "api#print_to_lcd"
   get "api/snap_photo", :to => "api#snap_photo"
   
+  get "pages/screen"
   get "pages/motors"
   get "pages/wiringpi"
   get "/fail", :to => 'pages#fail'
@@ -12,6 +13,9 @@ ControlSwitch::Application.routes.draw do
   get "cmds/restart"
   devise_for :users
   get "pages/rvm"
+  get "pages/audio_playback"
+  get "pages/audio_signal_sensing"
+  
   get "pages/coop"
   get "pages/check_pin_state"
   get "pages/camera"

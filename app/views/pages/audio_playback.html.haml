@@ -1,0 +1,38 @@
+%h1 Audio Playback on the Pi
+
+
+%h4 Sound on the Pi
+%p
+  There is no line-in on the pi.  Line-in is on the chip, but it's not wired up to anything.  
+  It would be very challenging to hook anything onto the chip's line-in wires, because the PCB is in the way of things and
+  everything is so tiny and small.  
+  It's very odd that they wouldn't allow the Raspberry Pi foundation to use line-in, but they do allow line-out just fine.  
+  But it's tricky.
+  
+%h4 The trick
+%p
+  Plugging in headphones into the pi is the best way to test audio.  
+  But HDMI audio can take control of the pi, so you might need to use `raspbi-config` to force audio through teh 3.5mm jack.  
+  Also, at the time of this writing, `aplay` is messed up and won't play sound, so don't use that to test, instead use
+  `omxplayer -o local /usr/share/scratch/Media/Music\ Loops/HipHop.mp3`
+  Or use `speaker-test` which plays static (not too unlike aplayer, lol).  
+  
+%h4 The 3.5mm Jack
+%p
+  The audio jack on the pi is rather non-standard.  
+  It has three signal leads and one ground, 
+  so you could hook up a camcorder 3.5mm plug and listen to left/right audio, and also see video BUT...
+  Camcorder cords have the ground pin in a different spot than what the RPi has, 
+  so you will hear buzzing/ feedback in addition to the audio signal if you connect to the pi with one of these jacks.  
+  When in doubt, connect headphones and test it that way.  
+
+
+%h4 What About Recording?
+%p
+  To record audio on the pi, buy a $4 USB audio DAC/ADC and configure it.  
+
+%h5 Ref:
+%ul
+  %li=link_to "About the 3.5mm Jack", "http://www.raspberrypi-spy.co.uk/2014/07/raspberry-pi-model-b-3-5mm-audiovideo-jack/"
+  %li=link_to "Use external USB Audio", "http://plugable.com/2014/11/06/how-to-switch-to-usb-audio-on-raspberry-pi"
+  
