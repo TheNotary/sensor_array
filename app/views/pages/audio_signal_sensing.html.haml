@@ -11,7 +11,7 @@
   This in turn creates a negative voltage across it's leads.  
   When the audio pressure lets up, the speaker returns to it's original position, creating a positive voltage across the microphone's leads.  
   That's more or less the mechanics of how sound is converted into an electronic form known as 
-  %strong pulse code modulation.  
+  %strong pulse code modulation (PCM).  
 
 %p
   To record sound, the voltage across a microphone's leads is measured by an 
@@ -24,16 +24,17 @@
   CD audio sounds much nicer because of this.  
   
 %p
-  Telephones suck for another reason; when they store and transfer microphone sound digitally, 
+  Telephones suck for another reason; when they store and transfer microphone measurements digitally, 
   the exact voltage level is rounded so that it fits in an 8bit number so that it takes up less space.  
   This processes of rounding is called quantization and in the industry, telephone grade audio is refered to as having an  
   %strong 8 bit depth.  
   CDs are usually 16bit.  
-  So with the horribly telephone bit depth, we record the microphone as being in one of 255 positions (255 is the max value of an 8 bit number).
+  So with the horrible telephone bit depth, we record the microphone as being in one of 255 positions (255 is the max value of an 8 bit number).
   CDs on the other hand can describe a microphone position as being one of 65,535.  
-  Truly, telephones are laughably pathetic devices.  
+  Truly, telephones are laughably pathetic means of communication.  
   What's worse than phones?  
-  Well, internal PC Speakers, those connected directly to motherboard header pins can only produce a sample rate around 1,193.18 kHz.  
+  Well, internal PC Speakers (those connected directly to motherboard header pins inside the PC) 
+  can only produce a sample rate around 1,193.18 kHz.  
   What's interesting is that it's a 1 bit DAC.  
   That means it can be up or down, it just has two positions.  
   Using 
@@ -41,7 +42,8 @@
   it's possible to move the speaker into 'in between positions' to play more than just square waves like those buzzes and beeps internal speakers are renouned for.  
 
 %p
-  In conclusion, to accomplish our goal of collecting an audio signal with the Pi, we will need an ADC capable of at least 8,000 hz per second
+  In conclusion, to accomplish our goal of collecting an audio signal with the Pi, 
+  we will need an ADC capable of at least 8,000 hz per second, ideally more.
 
 %ul
   %li=link_to "About line level", "http://en.wikipedia.org/wiki/Line_level"
