@@ -12,10 +12,10 @@ ControlSwitch::Application.routes.draw do
   get "cmds/shutdown"
   get "cmds/restart"
   devise_for :users
+  
   get "pages/rvm"
   get "pages/audio_playback"
   get "pages/audio_signal_sensing"
-  
   get "pages/coop"
   get "pages/check_pin_state"
   get "pages/camera"
@@ -24,5 +24,7 @@ ControlSwitch::Application.routes.draw do
   get "pages/lcd"
   get "pages/home"
   root 'pages#home'
+  
+  get "pages/time_clock"
   
 end
