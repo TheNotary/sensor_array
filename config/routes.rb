@@ -21,7 +21,6 @@ ControlSwitch::Application.routes.draw do
   get "pages/camera"
   get "pages/ir"
   get "pages/electronics_lab"
-  get "pages/time_clock"
   get "pages/lcd"
   get "pages/home"
   root 'pages#home'

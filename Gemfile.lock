@@ -1,8 +1,3 @@
-PATH
-  remote: ~/dev/ruby/ruby_pi_tc/
-  specs:
-    ruby_pi_tc (0.0.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -403,7 +398,6 @@ DEPENDENCIES
   protected_attributes
   pry
   rails (= 4.0.4)
-  ruby_pi_tc!
   sass-rails (~> 4.0.2)
   sdoc
   sqlite3

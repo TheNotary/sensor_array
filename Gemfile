@@ -5,7 +5,7 @@ gem 'rails', '4.0.4'
 gem 'thin'
 #gem 'faye'
 
-gem 'ruby_pi_tc', path: "~/dev/ruby/ruby_pi_tc/" if File.exists?(".using_clocker")
+#gem 'ruby_pi_tc', path: "~/dev/ruby/ruby_pi_tc/" if File.exists?(".using_clocker")
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
