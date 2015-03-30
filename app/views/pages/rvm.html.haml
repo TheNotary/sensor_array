@@ -23,6 +23,17 @@ Refs:
 =link_to "http://wiringpi.com/download-and-install/", "http://wiringpi.com/download-and-install/"
 
 
+%h4 Install NodeJS
+%p
+  Don't think, just do :)  (rails wants a javascript runtime installed, plus you might build something with it maybe).  
+%pre
+  =preserve do
+    :escaped
+      $ wget http://node-arm.herokuapp.com/node_latest_armhf.deb 
+      $ sudo dpkg -i node_latest_armhf.deb
+
+  
+
 %h4 Installing RVM
 %p
   Before you can install this web app, you need to get a good ruby development environment up and running.

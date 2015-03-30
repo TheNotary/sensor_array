@@ -1,0 +1,51 @@
+%h1 Raspberry Pi Backups and Images
+
+
+%p
+  So you've made some configurations to your pi and think they're cute.  I do too.  So we'd both like you to back them up.  But how?  Let's take a look of criteria we'd like in a backup solution.  
+
+%ul
+  %li Simple backup (few keystrokes)
+  %li Simple restore (few keystrokes)
+  %li Efficient backup (low waste of re-writing backed up data that's already written)
+  %li Can work on RPi A, B and even 2
+  %li Can work on multiple SD Card sizes
+  %li Hostnames don't get all messed up with multiple clones
+
+
+%p
+  Ok, that's not too extensive of a list.  
+  So let's go though options that don't satisfy the criteria and some that do.  
+
+
+%h4 Simle dd .img creating/ printing
+%p
+  I've always liked .img and .iso files.  
+  For some reason I think they're really neat.  
+  To make an image of your Raspberry Pi, you can simply take the card out of you pi, plug it into a laptop running linux, and use this command:
+
+%code
+  $  dd bs=4M if=/dev/mmcblk0 of=2015-03-20-my_stable_pi.img
+
+%p
+  But there's one caveat, see that part where the InputFile is specified as /dev/mmcblk0... that's my SD card reader on my laptop.  Your might be something different, so you'd have to google how to find out how to find out what your Multi Media Card reader is named in your linux distro (hint `lsblk` will show it to you if your card is inserted). 
+%p
+  There's another caveat:  This image you create can definately be printed back to the original SD card it came from, but if you try it on another SD Card of the same size, it might have bad secotors in it that prevent you from writing all of that .img data you recorded!  That sux!
+
+%p
+  Also, that .img file is going to be huge!  Probably as many gigabytes as your SD card can hold.  
+
+%p
+  We can hand onto this backup file for now if you want, but it isn't a good backup solution unless we tweak things by shrinking the ext4 partition before we dump the backup (we might do that later).  
+
+%h4 RSync the Files
+%p
+  We can use rsync to backup our file system on the pi routinely.  
+  Everytime we run the rsyn command after the first time, 
+  it will only copy over new files!
+  That saves tons of HDD write waste!
+%p
+  But... rsync doesn't generate a bootable SD card image...
+  It just copies files...
+  That's not going to help us out very much.  
+
