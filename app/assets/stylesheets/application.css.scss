@@ -12,3 +12,16 @@
  *= require_tree .
  */
 
+
+.link-button {
+    background:none!important;
+     border:none; 
+     padding:5px!important;
+     
+    
+    /*optional*/
+    font-family:arial,sans-serif; /*input has OS specific font-family*/
+     color:#069;
+     
+     cursor:pointer;
+}

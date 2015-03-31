@@ -50,3 +50,16 @@ function printToLcd(msg){
 
 var ajaxConfigObject = {};   // too lazy to implement, but really, really should so it's in my library
 
+
+
+
+
+// a replacement for browser alerts
+function alertModal(msg, title){
+	if (typeof title == 'undefined') title = "Information";
+	$('#alertModalTitle').html(title);
+	$('#alertModalBody').html(msg);
+	$('#alertModal').modal('show');
+}
+
+
