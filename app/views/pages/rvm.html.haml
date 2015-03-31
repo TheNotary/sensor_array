@@ -1,40 +1,18 @@
 %h1 Installing Prerequisits
-
-%h4 General Stuff
-
-Refs:
-%ul
-  %li=link_to "lots of h/w enabling stuff GPIO, i2c, SPI, Serial Rx/Tx", "https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/overview"
-  %li=link_to "Audio Related", "https://learn.adafruit.com/playing-sounds-and-using-buttons-with-raspberry-pi/overview"
-
-
-%pre
-  =preserve do
-    :escaped
-      $ sudo apt-get install i2c-tools # Gave up, too many file edits to copy/past right now
-
-
-%h4 Install Wiring Pi
 %p
-  Wiring Pi is a GPIO access library written in C specifically for use with the Raspberry Pi (or anything else based on the BCM2835 CPU).  
-  Basically what it does is let you interact with all those GPIO pins on the RPi.  
-  You can blink lights, detect button presses, and do more complex stuff, I think even use the PWM pin to dim an LED and such.  
-
-=link_to "http://wiringpi.com/download-and-install/", "http://wiringpi.com/download-and-install/"
-
-
-%h4 Install NodeJS
+  This page contains my own personal boot strap.  
+  I'm going to run this on a pi, and then use `dd` to create an image of my pi so I don't have to do it everytime
+  (it takes kind of a while due to compiling and downloading).
 %p
-  Don't think, just do :)  (rails wants a javascript runtime installed, plus you might build something with it maybe).  
-%pre
-  =preserve do
-    :escaped
-      $ wget http://node-arm.herokuapp.com/node_latest_armhf.deb 
-      $ sudo dpkg -i node_latest_armhf.deb
+  If you'd like to run the Sensor Array app from your own pi, 
+  then you should follow the procedure on this page.
+  Afterwards, you should be able to clone the repo from github and run the rails app like any other app.  
 
-  
 
-%h4 Installing RVM
+
+%h4 Installing RVM and all Dependencies (for other stuff too!)
+%p
+  Note: Removing the system's built in ruby seems to disable sonic pi... that's a bummer but I've never learnt what that was...
 %p
   Before you can install this web app, you need to get a good ruby development environment up and running.
   At first glance it seems that raspbian ships with a version of ruby in the package repository that doesn't even have any gems,
@@ -50,7 +28,7 @@ refs:
   =preserve do
     :escaped
       # This removes the debian installation of ruby.. ruby is barely useful without rvm
-      $ sudo apt-get remove ruby
+      $ sudo apt-get remove ruby1.9.1
       
       # this will install rvm/ruby's dependencies
       $ sudo apt-get update
@@ -66,8 +44,34 @@ refs:
       # This part will install any dependencies we missed, then install ruby 2.1.x and set it to be the default ruby
       $ rvm requirements && rvm install 2.1 && rvm use 2.1 --default
       
-      
 
+%h4 Install NodeJS
+%p
+  Don't think, just do :)  Rails wants a javascript runtime installed, plus you might build something with NodeJS someday.  
+%pre
+  =preserve do
+    :escaped
+      $ wget http://node-arm.herokuapp.com/node_latest_armhf.deb && \
+        sudo dpkg -i node_latest_armhf.deb && \
+        rm node_latest_armhf.deb
+
+
+%h4 Install Wiring Pi
+%p
+  Wiring Pi is a GPIO access library written in C specifically for use with the Raspberry Pi (or anything else based on the BCM2835 CPU).  
+  Basically what it does is let you interact with all those GPIO pins on the RPi.  
+  You can blink lights, detect button presses, and do more complex stuff, I think even use the PWM pin to dim an LED and such.  
+
+%pre
+  =preserve do
+    :escaped
+      $  mkdir ~/src && \
+         cd ~/src && \
+         git clone git://git.drogon.net/wiringPi && \
+         cd wiringPi && \
+         ./build
+
+=link_to "http://wiringpi.com/download-and-install/", "http://wiringpi.com/download-and-install/"
 
 
 
@@ -79,10 +83,25 @@ refs:
 %pre
   =preserve do
     :escaped  
-      $ sudo apt-get update
       $ sudo apt-get install python-dev python-rpi.gpio python-smbus
 
 
+
+%h4 General Stuff
+%p
+  Some stuff on the pi like the SPI h/w interface (it's a data channel) or the camera accessory won't work out of the box.
+  So to enable that kind of thing, look at the below links.  
+  But I guess it increases the system's boot time, so if you don't need it yet, don't do it by default?  
+
+Refs:
+%ul
+  %li=link_to "lots of h/w enabling stuff GPIO, i2c, SPI, Serial Rx/Tx", "https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/overview"
+  %li=link_to "Audio Related", "https://learn.adafruit.com/playing-sounds-and-using-buttons-with-raspberry-pi/overview"
+
+%pre
+  =preserve do
+    :escaped
+      $ sudo apt-get install i2c-tools # Gave up, too many file edits to copy/past right now
 
 
 
