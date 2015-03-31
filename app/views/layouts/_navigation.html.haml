@@ -7,12 +7,11 @@
         %span.icon-bar
         %span.icon-bar
       %a.navbar-brand{:href => "/"} Sensor Array 
-      %button.navbar-brand.link-button{onclick: "alertModal('#{`cat /etc/motd`}', '/etc/motd')"} [#{`hostname`.strip}]
+      %button.navbar-brand.link-button{onclick: "alertModal('#{ h(`cat /etc/motd`.chomp) }', '/etc/motd')"} [#{`hostname`.strip}]
     #navbar.navbar-collapse.collapse
       %ul.nav.navbar-nav
         =render partial: '/layouts/nav_links', locals: {the_links: nav_links}
         
-      
         %li.dropdown
           %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
             Labs & Tutorials
@@ -29,9 +28,6 @@
             %li.dropdown-header Activities!
             %li= link_to "Semi-Virtual Laser Dungeon", "/pages/laser_dungeon"
 
-            
-            
-            
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
           %li
@@ -46,16 +42,3 @@
           %li
             = link_to('Sign up', new_user_registration_path)
         
-
-
-  
-  
-
-      
-      
-      
-      
-  
-  
-  
-  

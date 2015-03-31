@@ -64,10 +64,11 @@ function alertModal(msg, title){
 
 
 // Resolves an array consisting of [Header, depth] pairs
-function makeTOC(){
+// alertModal(makeTocHtml())
+function makeTocHtml(){
 	var tree = makeTOCNodes();
 	var html = convertTextTreeToHTML(tree);
-	alertModal(html);
+	return html;
 }
 
 // I want output like...
@@ -82,18 +83,14 @@ function makeTOCNodes(){
 		if (index == 0) return "continue";
 		
 		depth = determineDepth(lastTag, el.tagName, depth);
-		var htmlForItem = "";
-		for(var i = 0; i < depth; i++){
-			htmlForItem = "-" + htmlForItem;
-		}
-		htmlForItem = htmlForItem + el.innerHTML;
-		tree.push([htmlForItem, depth]);
+		tree.push([el.innerHTML, depth]);
 		
 		lastTag = el.tagName;
 	});
 	
 	return tree;
 }
+
 
 function determineDepth(lastTag, currentTag, currentDepth){
 	if (lastTag == "") return 0;
@@ -102,24 +99,48 @@ function determineDepth(lastTag, currentTag, currentDepth){
 	lastTag = parseInt(lastTag.substring(1));
 	currentTag = parseInt(currentTag.substring(1));
 	
-	//return currentTag - lastTag;
 	if (lastTag < currentTag) return currentDepth + 1;
 	if (lastTag == currentTag) return currentDepth;
 	if (lastTag > currentTag) return currentDepth - 1;
-	
 }
 
 // convertTextTreeToHTML([ "Main Header", "-Child of main", "--child of child", "New Main Header"])
 function convertTextTreeToHTML(tree){
+	var lastDepth = 0;
 	var outputHTML = "<ul>";
-	$.each(tree, function( index, value ) {
+	$.each(tree, function( index, value ){
 		var header = value[0];
+		var currentDepth = value[1];
+		
+		outputHTML += beginOrEndSubList(lastDepth, currentDepth);
+		lastDepth = currentDepth;
+		
 		var depth = value[1];
 		outputHTML = outputHTML + "<li>" + header + "</li>";
 	});
-	outputHTML = outputHTML + "</ul>";
 	
-	alertModal(outputHTML);
+	for (var i = 0; i <= lastDepth; i++)
+		outputHTML += "</ul>";
+	
+	return outputHTML;
+}
+
+// Adds a new <ul> if we're dropping to another level.  
+function beginOrEndSubList(lastDepth, currentDepth){
+	if (lastDepth < currentDepth)
+		return "<ul>";
+	else if (lastDepth > currentDepth)
+		return "</ul>";
+	else
+		return "";
+}
+
+function placeTocOnPage(){
+	if ( $( ":header" ).toArray().length <= 2  ){
+		$("#toc").hide();
+		return;
+	} 
+	$("#toc").html(makeTocHtml());
 }
 
 

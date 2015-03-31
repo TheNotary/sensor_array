@@ -24,7 +24,7 @@ fayeUtility.createNewFayeClient = function(serverAddress, chatPort){
   
   // self.client = client;
   return client;
-}
+};
 
 
 
