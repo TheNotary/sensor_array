@@ -63,3 +63,63 @@ function alertModal(msg, title){
 }
 
 
+// Resolves an array consisting of [Header, depth] pairs
+function makeTOC(){
+	var tree = makeTOCNodes();
+	var html = convertTextTreeToHTML(tree);
+	alertModal(html);
+}
+
+// I want output like...
+// tree = { "Main Header": ["child header 1", "child header 2", {"child header 3": ["lil baby header"]}] }
+function makeTOCNodes(){
+	var allHeaders = $( ":header" ).toArray();
+	
+	var depth = 0;
+	var lastTag = "";
+	var tree = [];
+	$.each(allHeaders, function( index, el ) {
+		if (index == 0) return "continue";
+		
+		depth = determineDepth(lastTag, el.tagName, depth);
+		var htmlForItem = "";
+		for(var i = 0; i < depth; i++){
+			htmlForItem = "-" + htmlForItem;
+		}
+		htmlForItem = htmlForItem + el.innerHTML;
+		tree.push([htmlForItem, depth]);
+		
+		lastTag = el.tagName;
+	});
+	
+	return tree;
+}
+
+function determineDepth(lastTag, currentTag, currentDepth){
+	if (lastTag == "") return 0;
+	
+	// strip 'H' from say 'H1'
+	lastTag = parseInt(lastTag.substring(1));
+	currentTag = parseInt(currentTag.substring(1));
+	
+	//return currentTag - lastTag;
+	if (lastTag < currentTag) return currentDepth + 1;
+	if (lastTag == currentTag) return currentDepth;
+	if (lastTag > currentTag) return currentDepth - 1;
+	
+}
+
+// convertTextTreeToHTML([ "Main Header", "-Child of main", "--child of child", "New Main Header"])
+function convertTextTreeToHTML(tree){
+	var outputHTML = "<ul>";
+	$.each(tree, function( index, value ) {
+		var header = value[0];
+		var depth = value[1];
+		outputHTML = outputHTML + "<li>" + header + "</li>";
+	});
+	outputHTML = outputHTML + "</ul>";
+	
+	alertModal(outputHTML);
+}
+
+
