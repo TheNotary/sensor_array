@@ -128,7 +128,7 @@ var tocObject = {
 			lastDepth = currentDepth;
 			
 			var depth = value[1];
-			outputHTML = outputHTML + "<li>" + header + "</li>";
+			outputHTML = outputHTML + "<li id='toc" + index + "'>" + header + "</li>";
 		});
 		
 		for (var i = 0; i <= lastDepth; i++)
@@ -153,7 +153,23 @@ var tocObject = {
 
 
 
-
+function closest(){
+	var top = $(window).scrollTop();
+	var closestIndex;
+	var highlighted, closest = Number.MAX_VALUE;
+	
+	for (var i = 0; i < tocObject.headingOffsets.length; i++) {
+		var currentClosest = Math.abs(tocObject.headingOffsets[i] - top);
+		if (currentClosest < closest) {
+			closestIndex = i;
+			closest = currentClosest;
+		}
+	}
+	
+	$("#toc" + closestIndex).addClass('active');
+	
+	return [top, closestIndex, closest];
+}
 
 
 

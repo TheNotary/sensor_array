@@ -1,0 +1,14 @@
+#toc {
+  position:fixed;
+}
+
+toc * li {
+  border-radius:10px;
+  padding-top:2px;
+  padding-bottom:5px;
+  padding-left:5px;
+}
+
+toc * li.active {
+  background-color: #ddd;
+}
