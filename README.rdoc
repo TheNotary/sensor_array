@@ -124,3 +124,17 @@ To enable shutdowns, you need to create a user group 'wheel' and allow users in 
     ...
     wheel:blabla:USER_NAME_RUNNING_RAILS_APP
 
+
+
+
+== How I Deploy on Heroku
+
+I created an environment var called HEROKU_DEPLOYING=true
+
+I also made the gem 'sqlite3' conditional, based on that environment var.  
+
+Then to create a Gemfile.lock file without sqlite3 references, I do `HEROKU_DEPLOYING=true bundle install` and that updates the Gemfile.lock as though it were on heroku.  
+Next I make that commit and push it up to heroku.  
+Then I cand delete that commit since I don't need it after I push to heroku :)
+
+
