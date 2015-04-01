@@ -4,6 +4,7 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
 <% adaptor = ENV['HEROKU_DEPLOYMENT'].nil? ? 'sqlite3' : 'pg' %>
+<% p_database = ENV['HEROKU_DEPLOYMENT'].nil? ? 'db/production.sqlite3' : 'production' %>
 
 common: &common
   adapter: <%= adaptor %>
@@ -21,5 +22,5 @@ test:
 
 production:
   <<: *common
-  database: db/production.sqlite3
+  database: <%= p_database %>
   
