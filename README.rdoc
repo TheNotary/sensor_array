@@ -1,19 +1,29 @@
 == Starting This App
 
-Try compiled faye bayeux server running via init.d, slow boot with faye as middleware.  Ruby faye might work if it's standalone.  
+TODO:  Try compiled faye bayeux server running via init.d, slow boot with faye as middleware and disables development stuff.  
 
 This is pretty much just a run of the mill rails application.  Clone, bundle, rake db:migrate, and then launch the server.  The only odd thing about this app is that you can't run it in development mode because it uses websockets on some of the cooler pages.  
 
+    # Before your first boot, install all dependencies with out worry!
     $  bundle install
-    $  bundle exec rake db:migrate
-    $  rails server -e production
 
-Once that's out of the way, you should be able to navigate to 127.0.0.1:3000 in a web browser...  oh and if you do that on your pi, plugin your pi's address and you can navigate to it from your laptop/ PC.  
+    # Don't forget you need to make the database at least once!
+    $  bundle exec rake db:migrate
+
+    # Start the server, what a great feeling to have a web page on port 3000!
+    $  rails server 
+
+Once that's out of the way, you should be able to navigate to 127.0.0.1:3000 in a web browser...  oh and if you do that on your pi, plugin your pi's address and you can navigate to it from your laptop/ PC.  Don't know the ip address of your pi?  Ask it with the `ifconfig` command :)
+
 
 == My Raspberry Pi Development Rails App
 
 This repo is quickly becoming everything I develop or prototype on my Raspberry Pi.  
+Not every page is completed.  
+Maybe you will contribute to incomplete pages by making issues or pull requests?
+Or maybe you will contribute to the web and not to me specifically, by simply creating a fork and continuing in an unforseen direction.  
 
+Feel free to create issues to have discussions or see me on a forum :) 
 
 
 == Notes on video stream
