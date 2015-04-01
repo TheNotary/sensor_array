@@ -74,6 +74,12 @@ var tocObject = {
 		$("#toc").html(tocObject.makeTocHtml());
 	},
 	
+	enableHighlightingNearstHeader: function(){
+		window.onscroll=function(){
+			tocObject.setClosestHeadingToActive();
+		};
+	},
+	
 	// Resolves an array consisting of [Header, depth] pairs
 	// alertModal(makeTocHtml())
 	makeTocHtml: function(){
@@ -144,32 +150,38 @@ var tocObject = {
 			return "</ul>";
 		else
 			return "";
+	},
+	
+	setClosestHeadingToActive: function(){
+		var top = $(window).scrollTop();
+		var closestIndex;
+		var closest = Number.MAX_VALUE;
+		
+		for (var i = 0; i < tocObject.headingOffsets.length; i++) {
+			var currentClosest = Math.abs(tocObject.headingOffsets[i] - top);
+			if (currentClosest < closest) {
+				closestIndex = i;
+				closest = currentClosest;
+			}
+		}
+		
+		$("toc * li").removeClass('active');
+		$("#toc" + closestIndex).addClass('active');
+		
+		return [top, closestIndex, closest];
 	}
+	
+	
+	
 	
 };
 
 
+// tocObject.enableHighlightingNearstHeader();
 
 
 
 
-function closest(){
-	var top = $(window).scrollTop();
-	var closestIndex;
-	var highlighted, closest = Number.MAX_VALUE;
-	
-	for (var i = 0; i < tocObject.headingOffsets.length; i++) {
-		var currentClosest = Math.abs(tocObject.headingOffsets[i] - top);
-		if (currentClosest < closest) {
-			closestIndex = i;
-			closest = currentClosest;
-		}
-	}
-	
-	$("#toc" + closestIndex).addClass('active');
-	
-	return [top, closestIndex, closest];
-}
 
 
 
