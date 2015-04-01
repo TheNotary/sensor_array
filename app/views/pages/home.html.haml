@@ -1,7 +1,33 @@
-%h1 Control Switch
-%p This is a lovely app for getting info and controlling a cool system.
+%h1 Sensor Array
+%p 
+  This web app is designed to run on the pi and make all of it's cool possibilities visible in a web environment
+  with the every hand ruby programming language underneath.
+
+%p
+  If you click the labs tab, you'll see:
+  %ul
+    %li A really nice equipment manifest that I documented
+    %li A lot of labs and documentation that relate to hacking the Raspberry Pi
+    %li Fun activities
+
+%p
+  If you click the Sensor Data dropdown, you'll see a bunch of sensor pages.  
+  They won't work on heroku, so you'll need to deploy the app to your raspberry pi and configure them if needed.
+  There's a chance that I won't have finished all of them, and you'll need to boot the faye server... ha
+  Send a message if you want to work together to get a page done quick.  
+  
+%p
+  You can see the source code for this app at
+  =link_to "Github.com/TheNotary", "https://github.com/TheNotary/sensor_array"
+  .  
+  Especially take a look at the readme since that will show you how to install the app.  
+  The readme is probably incomplete in areas so PLZ leave an issue so I know which parts people get stuck on.  
+  
+%p
+  Also, if you know how to integrate an LCARS UI into the existing bootstrap structure, please let me know =)
+  
+  
 
 %div.controls
-  -#=button_to "your link", '#', :onclick => "btnShutdown()"
-  =button_tag "shutdown", :type => "button", :onclick => "btnShutdown()"
-
+  =button_tag "shutdown DISABLED", :type => "button", :onclick => "btnShutdownDISABLED()"
+  
