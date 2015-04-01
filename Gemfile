@@ -9,7 +9,7 @@ gem 'thin'
 
 # Use sqlite3 as the database for Active Record
 group :development do
-  gem 'sqlite3' # if ENV['HEROKU_DEPLOYMENT'].nil?
+  gem 'sqlite3' if ENV['HEROKU_DEPLOYMENT'].nil?
 end
 
 group :production do
