@@ -1,9 +1,17 @@
 module ApplicationHelper
-  def nav_links
-    links = { "Configure RPi" => "/pages/configuration",
+  def sensor_links
+    links = { 
               "LCD Control" => "/pages/lcd",
+              "Integrity (doors & windows)" => "/pages/integrity",
+              "Motion" => "/pages/motion",
+              "Thermal" => "/pages/thermal"
             }
-              
+  end
+  
+  def config_links
+    links = { "Configure RPi" => "/pages/configuration",
+              "Backups & .img files" => "/pages/backups_and_images",
+            }
   end
   
   def equipment_links
@@ -26,7 +34,9 @@ module ApplicationHelper
   end
   
   def activitie_links
-    links = {}
+    links = {
+      "Semi-Virtual Laser Dungeon" => "/pages/laser_dungeon"
+      }
   end
   
   def mark_active?(k,v)

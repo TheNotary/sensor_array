@@ -13,7 +13,12 @@ ControlSwitch::Application.routes.draw do
   get "cmds/restart"
   devise_for :users
   
+  get "pages/integrity"
+  get "pages/motion"
+  get "pages/thermal"
   get "pages/configuration"
+  get "pages/backups_and_images"
+  
   get "pages/audio_playback"
   get "pages/audio_signal_sensing"
   get "pages/coop"

@@ -10,11 +10,14 @@
       %button.navbar-brand.link-button{onclick: "alertModal('#{ h(`cat /etc/motd`.chomp) }', '/etc/motd')"} [#{hostname}]
     #navbar.navbar-collapse.collapse
       %ul.nav.navbar-nav
-        =render partial: '/layouts/nav_links', locals: {the_links: nav_links}
+        =render partial: '/layouts/nav_links', locals: {the_links: config_links}
+        %li.divider-vertical
+        =render partial: '/layouts/nav_links', locals: {the_links: sensor_links}
         
         %li.dropdown
           %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
             Labs & Tutorials
+            %span.badge= equipment_links.count + lab_links.count + activitie_links.count
             %span.caret
           %ul.dropdown-menu{:role => "menu"}
             %li.dropdown-header Equipment
@@ -26,7 +29,7 @@
 
             %li.divider
             %li.dropdown-header Activities!
-            %li= link_to "Semi-Virtual Laser Dungeon", "/pages/laser_dungeon"
+            =render partial: '/layouts/nav_links', locals: {the_links: activitie_links}
 
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
