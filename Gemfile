@@ -12,7 +12,7 @@ group :development do
   gem 'sqlite3' if ENV['HEROKU_DEPLOYMENT'].nil?
 end
 
-#gem 'pg' unless ENV['HEROKU_DEPLOYMENT'].nil?
+gem 'pg' unless ENV['HEROKU_DEPLOYMENT'].nil?
 
 
 # Use SCSS for stylesheets
