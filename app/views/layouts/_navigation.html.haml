@@ -7,7 +7,7 @@
         %span.icon-bar
         %span.icon-bar
       %a.navbar-brand{:href => "/"} Sensor Array 
-      %button.navbar-brand.link-button{onclick: "alertModal('#{ h(`cat /etc/motd`.chomp) }', '/etc/motd')"} [#{`hostname`.strip}]
+      %button.navbar-brand.link-button{onclick: "alertModal('#{ h(`cat /etc/motd`.chomp) }', '/etc/motd')"} [#{hostname}]
     #navbar.navbar-collapse.collapse
       %ul.nav.navbar-nav
         =render partial: '/layouts/nav_links', locals: {the_links: nav_links}

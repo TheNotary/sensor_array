@@ -38,4 +38,12 @@ module ApplicationHelper
     return true if "/#{params[:controller]}" == v and params[:action] == "index"
     return false
   end
+  
+  def hostname
+    if ENV['HEROKU_DEPLOYMENT'].nil?
+      return `hostname`.strip
+    else
+      return "heroku"
+    end
+  end
 end
