@@ -20,7 +20,8 @@ module ApplicationHelper
       "Screen" => "/pages/screen",
       "Audio Playback" => "/pages/audio_playback",
       "Audio Signal Sensing" => "/pages/audio_signal_sensing",
-      "Logic Analyzer" => "/pages/logic_analyzer"
+      "Logic Analyzer" => "/pages/logic_analyzer",
+      "Avr ethernet Satalites" => "/pages/avr"
     }
   end
   

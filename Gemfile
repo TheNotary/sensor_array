@@ -8,7 +8,7 @@ gem 'thin'
 #gem 'ruby_pi_tc', path: "~/dev/ruby/ruby_pi_tc/" if File.exists?(".using_clocker")
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'sqlite3' if ENV['HEROKU_DEPLOYMENT'].nil?
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'

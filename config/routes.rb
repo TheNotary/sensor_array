@@ -25,6 +25,7 @@ ControlSwitch::Application.routes.draw do
   get "pages/home"
   get "pages/laser_dungeon"
   get "pages/logic_analyzer"
+  get "/pages/avr"
 
 
   root 'pages#home'
