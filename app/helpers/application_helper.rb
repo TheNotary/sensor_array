@@ -1,10 +1,10 @@
 module ApplicationHelper
   def sensor_links
     links = { 
-              "LCD Control" => "/pages/lcd",
               "Integrity (doors & windows)" => "/pages/integrity",
               "Motion" => "/pages/motion",
-              "Thermal" => "/pages/thermal"
+              "Thermal" => "/pages/thermal",
+              "Accoustic" => "/pages/accoustic"
             }
   end
   
@@ -12,6 +12,12 @@ module ApplicationHelper
     links = { "Configure RPi" => "/pages/configuration",
               "Backups & .img files" => "/pages/backups_and_images",
             }
+  end
+  
+  def control_links
+    links = {
+      "LCD Control" => "/pages/lcd",
+    }
   end
   
   def equipment_links

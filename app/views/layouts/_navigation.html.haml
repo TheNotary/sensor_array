@@ -12,7 +12,19 @@
       %ul.nav.navbar-nav
         =render partial: '/layouts/nav_links', locals: {the_links: config_links}
         %li.divider-vertical
-        =render partial: '/layouts/nav_links', locals: {the_links: sensor_links}
+        
+        
+        %li.dropdown
+          %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            Sensor Data
+            %span.caret
+          %ul.dropdown-menu{:role => "menu"}
+            %li.dropdown-header Data
+            =render partial: '/layouts/nav_links', locals: {the_links: sensor_links}
+            %li.dropdown-header Misc Controls
+            =render partial: '/layouts/nav_links', locals: {the_links: control_links}
+            
+        
         
         %li.dropdown
           %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
