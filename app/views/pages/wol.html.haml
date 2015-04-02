@@ -1,0 +1,13 @@
+%h1 WoL
+
+%p
+  ToDo:
+  %ul
+    %li rails g model WakableHost hostname:string mac:string Ip:string subnet:string # has many boot_times def time_till_boot; boot_times.avg; end
+    %li rails g model BootTime wakable_host_id:integer boot_time:integer
+    %li make interface add machines
+    %li make interface button send WoL signals
+    %li make interface label scan the network and 
+    %li after it does a WoL, it spins up a processes that continually scans the network for up to 2 minutes look for when the system finally comes online and then records the boot time
+    
+    

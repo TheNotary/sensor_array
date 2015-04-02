@@ -8,6 +8,14 @@ module ApplicationHelper
             }
   end
   
+  def ether_links
+    links = {
+              "Packet Sniffer" => "/pages/packet_sniffer",
+              "Network Host Scan" => "/pages/nbtscan",
+              "Wake on Lan" => "/pages/wol"
+    }
+  end
+  
   def config_links
     links = { "Configure RPi" => "/pages/configuration",
               "Backups & .img files" => "/pages/backups_and_images",

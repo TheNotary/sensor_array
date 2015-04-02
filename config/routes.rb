@@ -19,6 +19,10 @@ ControlSwitch::Application.routes.draw do
   get "pages/thermal"
   get "pages/configuration"
   get "pages/backups_and_images"
+  get "/pages/packet_sniffer"
+  get "/pages/nbtscan"
+  get "/pages/wol"
+  
   
   get "pages/audio_playback"
   get "pages/audio_signal_sensing"

@@ -11,13 +11,13 @@
 ### END INIT INFO
 
 # Add to auto-start on server start
-# sudo update-rc.d control_switch defaults
+# sudo update-rc.d sensor_array defaults
 # Remove from auto-start
-# sudo update-rc.d -f control_switch remove
+# sudo update-rc.d -f sensor_array remove
 
 #RVM_ENV="ruby-2.0.0-p195@global"
 RVM_ENV="default"
-APP_NAME="control_switch"
+APP_NAME="sensor_array"
 APP_PATH="/home/pi/dev/rails/$APP_NAME"
 EUSER="pi"
 

@@ -19,8 +19,10 @@
             Sensor Data
             %span.caret
           %ul.dropdown-menu{:role => "menu"}
-            %li.dropdown-header Data
+            %li.dropdown-header Data Sensors
             =render partial: '/layouts/nav_links', locals: {the_links: sensor_links}
+            %li.dropdown-header Ethernet Sensors
+            =render partial: '/layouts/nav_links', locals: {the_links: ether_links}
             %li.dropdown-header Misc Controls
             =render partial: '/layouts/nav_links', locals: {the_links: control_links}
             
