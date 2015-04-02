@@ -4,7 +4,8 @@ module ApplicationHelper
               "Integrity (doors & windows)" => "/pages/integrity",
               "Motion" => "/pages/motion",
               "Thermal" => "/pages/thermal",
-              "Accoustic" => "/pages/accoustic"
+              "Accoustic" => "/pages/accoustic",
+              "Photonic (camera)" => "/pages/photonic"
             }
   end
   
@@ -17,7 +18,9 @@ module ApplicationHelper
   end
   
   def config_links
-    links = { "Configure RPi" => "/pages/configuration",
+    links = { 
+              "The Pi Bootcamp" => "/pages/the_pi_bootcamp",
+              "Configure RPi" => "/pages/configuration",
               "Backups & .img files" => "/pages/backups_and_images",
             }
   end

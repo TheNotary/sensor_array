@@ -22,7 +22,7 @@ ControlSwitch::Application.routes.draw do
   get "/pages/packet_sniffer"
   get "/pages/nbtscan"
   get "/pages/wol"
-  
+  get "/pages/the_pi_bootcamp"  
   
   get "pages/audio_playback"
   get "pages/audio_signal_sensing"

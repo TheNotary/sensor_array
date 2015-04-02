@@ -1,0 +1,19 @@
+# Here's an example ~/.ssh/config file
+# you should put this on your linux desktop or laptop
+# It will be used when connecting to your linux Raspberry Pi
+# Peace, Love, 
+# TheNotary :)
+
+# Host:          Your nickname for the pi, as used in the ssh command to login
+# HostName:      The actual IP address or hostname assigned to your pi
+# User:          The user name you'll be logging into on your pi
+# PubkeyAuthentication: Set this to 'no' to force using a password, otherwise comment it out
+# IdentityFile:  This is the private key file you created using the `ssh-keygen` command
+
+Host raspberry-garagedoor 192.168.1.101
+HostName 192.168.1.101
+User pi
+#PubkeyAuthentication no
+IdentityFile ~/.ssh/raspberry-upstairs_rsa
+
+
