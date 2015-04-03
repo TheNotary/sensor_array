@@ -55,7 +55,8 @@ refs:
     :escaped
       $ wget http://node-arm.herokuapp.com/node_latest_armhf.deb && \
         sudo dpkg -i node_latest_armhf.deb && \
-        rm node_latest_armhf.deb
+        rm node_latest_armhf.deb && \
+        echo 'export EXECJS_RUNTIME=Node' >> ~/.bashrc
 
 
 %h4 Install Wiring Pi
