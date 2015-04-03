@@ -37,6 +37,7 @@ module ApplicationHelper
   
   def lab_links
     links = {
+      "" => "",
       "Camera and Vid Streaming" => "/pages/camera",
       "Check Pin States" => "/pages/check_pin_state",
       "Infra-Red Signal Detection" => "/pages/ir",
@@ -48,7 +49,8 @@ module ApplicationHelper
       "Logic Analyzer" => "/pages/logic_analyzer",
       "Avr ethernet Satalites" => "/pages/avr",
       "Hovering Robot" => "/pages/hover",
-    }
+      "Data Transmission/ Receiption" => "/pages/data_io",
+    }.reject!{ |k, v| k == "" and v == "" }
   end
   
   def activitie_links
