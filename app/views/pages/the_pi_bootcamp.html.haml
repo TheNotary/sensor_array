@@ -4,20 +4,32 @@
     The Raspberry Pi is fun and easy!  
     But you won't have fun or ease if you don't know a couple tricks and secret codes.  
     This page contains information on all the tricks a hacker needs to know in order to have fun using the Pi.  
-    
-  %br 
-    
+    Keep in mind, the thing that makes the raspberry Pi special is the fact that you get not only the 
+    %strong GPIO pins 
+    that allow you to do fun stuff with electronics that computers won't let you, 
+    but you also get 
+    %strong linux, 
+    the fanciest OS that all serious software engineers know and love!
+  %br
+
   %ul
     %li
       %h4 Linux Prerequisit Command list:
       %ul
+        %li Know that a Pi is a linux PC, plus a microcontroller and that's fancy!
+        %li 
+          Know how to 
+          =link_to "download the OS (Raspbian!)", "http://www.raspberrypi.org/downloads/"
+          to Raspberry Pi and 
+          =link_to "burn it to an SD Card", "http://www.raspberrypi.org/help/noobs-setup/"
         %li Know that your user name is 'pi' and your password is raspberry until you change it
         %li Know that there's a `sudo raspi-config` command for configuring frequently configured linux stuff on the pi
         %li Know that `sudo` is a command for running things as the root user who can do extra special stuff
+        %li Know that you can install software in a manor superior to methods available in windows via `sudo apt-get install NAME-OF-PROGRAM`
         %li Learn the IP Address of your pi by using the `ifconfig` command
         %li Know that `ping google.com` can help you check if your pi has a connection to the internet
         %li Consider opening the 'windows' server by typing `startx` but that's such optional!
-        %li Know that you can install software in a manor superior to methods available in windows via `sudo apt-get install NAME-OF-PROGRAM`
+        
     %li
       %h4 SSH:
       %ul
