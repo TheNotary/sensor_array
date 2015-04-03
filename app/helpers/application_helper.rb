@@ -46,7 +46,8 @@ module ApplicationHelper
       "Audio Playback" => "/pages/audio_playback",
       "Audio Signal Sensing" => "/pages/audio_signal_sensing",
       "Logic Analyzer" => "/pages/logic_analyzer",
-      "Avr ethernet Satalites" => "/pages/avr"
+      "Avr ethernet Satalites" => "/pages/avr",
+      "Hovering Robot" => "/pages/hover",
     }
   end
   
