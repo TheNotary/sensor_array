@@ -1,9 +1,20 @@
 %h1 LCD
 
+%p
+  For hardware and detailed instructions on assembly, go to 
+  =link_to "adafruit's LCD tut", "https://learn.adafruit.com/adafruit-16x2-character-lcd-plus-keypad-for-raspberry-pi"
+
 %p 
   After assembled and installed correctly,
   your lcd plate can be instructed to display characters on screen.  
   Use the form below to access this feature.  
+
+%p
+  This page is in process though... I used adafruit's LCD plate library,
+  but I needed to make some changes to it and create an python CLI...
+  I haven't tested a fresh deploy so things might not work without tweaking.
+
+
 
 %textarea#lcd_msg
 
@@ -13,3 +24,8 @@
 
 
 =render 'console'
+
+
+
+
+

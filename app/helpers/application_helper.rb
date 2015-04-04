@@ -58,6 +58,13 @@ module ApplicationHelper
       "Semi-Virtual Laser Dungeon" => "/pages/laser_dungeon"
       }
   end
+
+  def external_links
+    links = {
+      "" => ""
+      "A beautiful lab of sharing" => "http://publiclab.org/tools",
+    }.reject!{ |k, v| k == "" and v == "" }
+  end
   
   def mark_active?(k,v)
     mark_active_conditions(k,v) ? "active" : ""
