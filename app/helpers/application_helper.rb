@@ -61,7 +61,7 @@ module ApplicationHelper
 
   def external_links
     links = {
-      "" => ""
+      "" => "",
       "A beautiful lab of sharing" => "http://publiclab.org/tools",
     }.reject!{ |k, v| k == "" and v == "" }
   end
