@@ -1,5 +1,6 @@
 ControlSwitch::Application.routes.draw do
 
+  get "/pages/micro_positioner"
   get "/pages/environmental"
   resources :door_events
 

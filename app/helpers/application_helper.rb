@@ -38,6 +38,7 @@ module ApplicationHelper
   def lab_links
     links = {
       "" => "",
+      "micro positioner" => "/pages/micro_positioner",
       "environmental" => "/pages/environmental",
       "Camera and Vid Streaming" => "/pages/camera",
       "Check Pin States" => "/pages/check_pin_state",
