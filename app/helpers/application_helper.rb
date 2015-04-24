@@ -38,7 +38,7 @@ module ApplicationHelper
   def lab_links
     links = {
       "" => "",
-      "micro positioner" => "/pages/micro_positioner",
+      "Micro Positioner" => "/pages/micro_positioner",
       "environmental" => "/pages/environmental",
       "Camera and Vid Streaming" => "/pages/camera",
       "Check Pin States" => "/pages/check_pin_state",
@@ -57,7 +57,8 @@ module ApplicationHelper
   
   def activitie_links
     links = {
-      "Semi-Virtual Laser Dungeon" => "/pages/laser_dungeon"
+      "Semi-Virtual Laser Dungeon" => "/pages/laser_dungeon",
+      "Variable Madlibs Buckets" => "/pages/variable_madlibs_buckets",
       }
   end
 
