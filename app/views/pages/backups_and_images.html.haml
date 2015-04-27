@@ -49,3 +49,22 @@
   It just copies files...
   That's not going to help us out very much.  
 
+
+
+%h4 Saving recipies
+%p
+  In general, you don't need to do 'backups' on your raspberry pi.  
+  You likely have run scripts and installed things on your pi,
+  and in the event that disaster strikes and everything on your SD card is gone,
+  you want to be able to get things back to the way they were. 
+
+%p
+  To achieve this, you can keep a record of all the commands you've run on your pi.  The `history >> my_history.txt` command is a great one that allows you to see a record of all the commands you've run (as this user).  There are some caveates, it doesn't show you the commands you've run as root, unless you switch to that user and run the commands.  Also, if you have multiple terminals open at the same time (A, B and C).  when you close B, it will save it's commands to history, but then when you close C, it will over-write everything B saved, so you are left with just the commands terminal C ran.  That's annoying as heck, right?  Oh well, it's best to document the commands you run as you run them anyway.  
+
+%p
+  It's super awesome when you store your 'recipies' as bash functions and put them on github.  Check out how this user is doing it... he's definately on to something.
+=link_to "install recipees", "https://www.raspberrypi.org/forums/viewtopic.php?f=43&t=53936"
+
+
+
+
