@@ -38,6 +38,7 @@ module ApplicationHelper
   def lab_links
     links = {
       "" => "",
+      "3d_scanner" => "/pages/3d_scanner",
       "fine_positioning" => "/pages/fine_positioning",
       "Micro Positioner" => "/pages/micro_positioner",
       "environmental" => "/pages/environmental",

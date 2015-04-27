@@ -1,5 +1,6 @@
 ControlSwitch::Application.routes.draw do
 
+  get "/pages/3d_scanner"
   get "/pages/fine_positioning"
   get "/pages/variable_madlibs_buckets"
   get "/pages/micro_positioner"
