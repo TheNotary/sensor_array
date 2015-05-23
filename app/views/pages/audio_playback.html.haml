@@ -12,10 +12,11 @@
 %h4 The trick
 %p
   Plugging in headphones into the pi is the best way to test audio.  
-  But HDMI audio can take control of the pi, so you might need to use `raspbi-config` to force audio through teh 3.5mm jack.  
-  Also, at the time of this writing, `aplay` is messed up and won't play sound, so don't use that to test, instead use
+  But HDMI audio can take over the pi's sound when you might actually want analog.  In that case, use `raspbi-config` to force audio through teh 3.5mm jack.  
+  Also note that `aplay` doesn't play encoded audio files like ogg or mp3.  If you try to use it for that purpose, it plays static.  
   `omxplayer -o local /usr/share/scratch/Media/Sounds/Music\ Loops/HipHop.mp3`
   Or use `speaker-test` which plays static (not too unlike aplayer, lol).  
+  
   
 %h4 The 3.5mm Jack
 %p
@@ -33,6 +34,7 @@
 
 %h5 Ref:
 %ul
+  %li=link_to "mess around with mixer", "http://blog.scphillips.com/posts/2013/01/sound-configuration-on-raspberry-pi-with-alsa/"
   %li=link_to "About the 3.5mm Jack", "http://www.raspberrypi-spy.co.uk/2014/07/raspberry-pi-model-b-3-5mm-audiovideo-jack/"
   %li=link_to "Use external USB Audio", "http://plugable.com/2014/11/06/how-to-switch-to-usb-audio-on-raspberry-pi"
   

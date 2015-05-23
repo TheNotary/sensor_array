@@ -1,5 +1,6 @@
 ControlSwitch::Application.routes.draw do
 
+  get "/pages/learn_programming_by_flight"
   get "/pages/3d_scanner"
   get "/pages/fine_positioning"
   get "/pages/variable_madlibs_buckets"

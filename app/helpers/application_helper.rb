@@ -61,6 +61,7 @@ module ApplicationHelper
     links = {
       "Semi-Virtual Laser Dungeon" => "/pages/laser_dungeon",
       "Variable Madlibs Buckets" => "/pages/variable_madlibs_buckets",
+      "learn_programming_by_flight" => "/pages/learn_programming_by_flight",
       }
   end
 
