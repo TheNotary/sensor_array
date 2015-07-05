@@ -38,6 +38,7 @@ module ApplicationHelper
   def lab_links
     links = {
       "" => "",
+      "wireless" => "/pages/wireless",
       "Camera and Vid Streaming" => "/pages/camera",
       "Check Pin States" => "/pages/check_pin_state",
       "Infra-Red Signal Detection" => "/pages/ir",

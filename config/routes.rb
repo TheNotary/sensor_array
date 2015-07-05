@@ -1,5 +1,6 @@
 ControlSwitch::Application.routes.draw do
 
+  get "/pages/wireless"
   resources :door_events
 
   get "api/print_to_lcd", :to => "api#print_to_lcd"
