@@ -21,6 +21,7 @@ module ApplicationHelper
     links = { 
               "The Pi Bootcamp" => "/pages/the_pi_bootcamp",
               "Configure RPi" => "/pages/configuration",
+              "wireless" => "/pages/wireless",
               "Backups & .img files" => "/pages/backups_and_images",
             }
   end
@@ -38,7 +39,6 @@ module ApplicationHelper
   def lab_links
     links = {
       "" => "",
-      "wireless" => "/pages/wireless",
       "Camera and Vid Streaming" => "/pages/camera",
       "Check Pin States" => "/pages/check_pin_state",
       "Infra-Red Signal Detection" => "/pages/ir",
