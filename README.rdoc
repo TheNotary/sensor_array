@@ -131,8 +131,6 @@ Then to create a Gemfile.lock file without sqlite3 references, I do `HEROKU_DEPL
 Next I make that commit and push it up to heroku.  
 Then I cand delete that commit since I don't need it after I push to heroku :)
 
-Note: I am ignoring Gemfile.lock on the local repo which may confuse me down the road :)
-
 I should look into that capistrano app for deploying more effectively...
 
 
