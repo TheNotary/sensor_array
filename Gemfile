@@ -7,7 +7,8 @@ gem 'thin'
 
 #gem 'ruby_pi_tc', path: "~/dev/ruby/ruby_pi_tc/" if File.exists?(".using_clocker")
 
-# Use sqlite3 as the database for Active Record
+# to Deploy on heroku, use `HEROKU_DEPLOYING=true bundle install` to create a good Gemfile.lock
+# And then push to heroku
 group :development do
   gem 'sqlite3' if ENV['HEROKU_DEPLOYMENT'].nil?
 end

@@ -55,12 +55,6 @@ Buy http://www.adafruit.com/product/732
 Complete tutorial here https://learn.adafruit.com/mcp230xx-gpio-expander-on-the-raspberry-pi
 
 
-== Time Clocker
-
-This is a secret project.  To enable it, do touch .using_clocker and put clocker's source code in ~/dev/ruby/tc_ruby or w/e it says in gem file.  The source isn't ready yet though.  
-
-
-
 == Notes on Audio Recording
 
 Record Multiple Mics:
@@ -137,6 +131,8 @@ Then to create a Gemfile.lock file without sqlite3 references, I do `HEROKU_DEPL
 Next I make that commit and push it up to heroku.  
 Then I cand delete that commit since I don't need it after I push to heroku :)
 
-Not I am ignoring Gemfile.lock on the local repo which may confuse me down the road :)
+Note: I am ignoring Gemfile.lock on the local repo which may confuse me down the road :)
+
+I should look into that capichino app for deploying more effectively...
 
 
