@@ -6,6 +6,7 @@ ControlSwitch::Application.routes.draw do
   get "/pages/variable_madlibs_buckets"
   get "/pages/micro_positioner"
   get "/pages/environmental"
+  get "/pages/wireless"
   resources :door_events
 
   get "api/print_to_lcd", :to => "api#print_to_lcd"

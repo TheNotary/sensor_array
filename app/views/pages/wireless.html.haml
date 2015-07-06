@@ -1,0 +1,97 @@
+%h1 Setting Up Wireless
+
+%p
+  Wireless is a little more complicated to use than wired ethernet,
+  mostly because Raspberry Pi doesn't come with a wireless NIC onboard.
+  So for starters, you need to get a wireless USB adaptor, 
+  and make sure you buy one that is linux compatible.
+  For reference I have an Asus made wireless adaptor(USB-N13).  
+  I'm happy with it other than the fact that wireless is a pain to setup
+  due to the team at Debian.org only spending x minutes of time per online doc page...
+
+%p
+  Before I get to the procedure, I'd like to point out that Raspbian ships with,
+  not one, but two methods of managing your network connection.
+  One might think this would double your networking pleasure, 
+  but no... it doesn't...
+  The two methods are
+  %strong Network Manager
+  and the
+  %strong ifconfig
+  suite of programs.  
+  The most important thing to understand is that 
+  you can configure your network connection using either Network Manager or ifconfig, 
+  but Network Manager has a feature where if it sees an interface (eth0, wlan, etc)
+  entry in ifconfig's config file (/etc/network/interfaces) it won't touch it!
+  That should make you think that ifconfig is the 'main way' to configure your network
+  and that's a fair perception of the situation.  
+
+%p
+  Below, I will share with you my procedure for getting my pi onto the wireless network
+  via a USB WiFi adaptor.  
+
+
+%h2 Procedure
+
+%h6 Check that linux knows your USB adaptor is plugged in
+%p
+  `lsusb` shows me all my USB devices, and 
+  one has a description of ASUSTek.
+  That sounds like my WiFi adaptor!
+
+%h6 Check the air waves for my WiFi Access Point
+%p
+  `iwlist wlan0 scan` shows me all the WiFi APs in the area.  
+  I write down my 
+  %strong "ESSID" 
+  from that list for use later,
+  I also remember the fact that I'm using 
+  %strong WPA2, 
+  and this is indicated in the output as  well.
+
+%h6 Edit /etc/network/interfaces
+%p
+  The main configuration for you network is found in the interfaces file.  
+  You can type `man interfaces` if you're an old person and read all about it.  
+  If you're not an old person, you just google and find out about it.  
+  Before you setup your interfaces, make sure wpasupplicant is installed with
+  `sudo apt-get install wpasupplicant` which gives you the ability to
+  use wireless declarations in your interfaces config file.  
+
+%p
+  Below is my config:
+
+%pre
+  = preserve
+
+    auto lo
+    iface lo inet loopback
+
+    #auto eth0
+    #iface eth0 inet static
+    #  address 192.168.0.198
+    #  netmask 255.255.255.0
+    #  gateway 192.168.0.1
+
+    auto wlan0
+    allow-hotplug wlan0
+    iface wlan0 inet static
+      wpa-ssid <put your SSID from the iwlist command we ran above>
+      wpa-psk <put your WiFi password here and chmod file to 600 if wanted>
+      address 192.168.0.188
+      gateway 192.168.0.1
+      netmask 255.255.255.0
+
+%p
+  You'll notice that I use 'static' instead of 'dhcp' in my wlan0 configuration section.
+  That's because I've got a lot of really zany h/w and DHCP is not reliable for me.  
+  Also, I commented out my eth0 wireless card, that's just because I'm not using it at the moment.
+  In your case, you can leave your eth0 section alone
+
+%h6 Start your network
+%p
+  Now that the configurations are set, use the `ifdown` and `ifup` commands
+  to restart your network.  
+  E.G. `sudo ifdown wlan0; sudo ifup wlan0`
+
+

@@ -21,6 +21,7 @@ module ApplicationHelper
     links = { 
               "The Pi Bootcamp" => "/pages/the_pi_bootcamp",
               "Configure RPi" => "/pages/configuration",
+              "wireless" => "/pages/wireless",
               "Backups & .img files" => "/pages/backups_and_images",
             }
   end
