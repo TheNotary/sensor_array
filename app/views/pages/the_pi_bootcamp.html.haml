@@ -40,7 +40,10 @@
           Learn the IP Address of your pi by using the 
           %code ifconfig
           command
-        %li Know that `ping google.com` can help you check if your pi has a connection to the internet
+        %li 
+          Know that 
+          %code ping google.com 
+          can help you check if your pi has a connection to the internet
         %li 
           Consider opening the 'windows' server interface by typing 
           %code startx 
@@ -119,12 +122,30 @@
             content: "<p>Though complex and sophisticated, git is essential to programming.</p>  <p>We use git to deploy our code to target machines.  We use git to ensure that our source code can be modified without permanent damage to the code base.  We use git to make backups of our code and store them either privately or on the cloud.  We use git to share.</p> <p>We need to learn how to use git.  To install git, complete the configuration page of this web application or run `sudo apt-get install git`.</p>", 
             trigger: "focus" }, 
             :role => "button", :tabindex => "0", :title => "x" } REQUIRED READING
-        %li To clone (download) the repository of the web app you're looking at now: `git clone https://github.com/thenotary/sensor_array`
-        %li To save changes you've made to my code: `git add .` and `git commit -m "I made really cool changes"`
-        %li To share your changes with the internet: `git push`
-        %li But that last command requires some setup... Perhaps a diagram... a serious tut that I just don't have for you due to time constraints...
-        %li Instead... make a diagram and tutorial and commit it to your fork and issue a pull request so I can include it in my app immediately :)
-        
+        %li 
+          To clone (download) the repository of the web app you're looking at now: 
+          %div
+            %code $  git clone https://github.com/thenotary/sensor_array
+        %li 
+          To save changes you've made to my code: 
+          %div
+            %code $  git add .
+          %div and 
+          %div
+            %code $  git commit -m "I made really cool changes"
+        %li 
+          To share your changes with the internet: 
+          %div
+            %code $  git push
+        %li 
+          But that last command requires that you cloned a repo that you have write permissions to...  
+          Other than me, no one has write permissions to
+          %code https://github.com/thenotary/sensor_array
+          \.  You *could* go to github.com and create a new repository, and then edit 
+          %code .git/config
+          and change the line about origin to point to your fresh new repository.  
+          Then you would be able to push your changes up to the cloud for easy deployment, sharing, etc...
+          I'll have to write a more serious tutorial for this later...
     %li 
       %h4 Ruby:
       %ul

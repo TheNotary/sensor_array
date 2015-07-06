@@ -8,27 +8,36 @@
   %li Simple backup (few keystrokes)
   %li Simple restore (few keystrokes)
   %li Efficient backup (low waste of re-writing backed up data that's already written)
-  %li Can work on RPi A, B and even 2
+  %li Can work on RPi A, B and even RPi 2.0
   %li Can work on multiple SD Card sizes
   %li Hostnames don't get all messed up with multiple clones
+  %li Backups can happen in the background on a regular schedule without need to do something
 
 
 %p
   Ok, that's not too extensive of a list.  
-  So let's go though options that don't satisfy the criteria and some that do.  
+  So let's go though options that satisfy at least some of the criteria.  
 
 
-%h4 Simle dd .img creating/ printing
+%h4 Simple dd .img creating/ printing
 %p
   I've always liked .img and .iso files.  
   For some reason I think they're really neat.  
   To make an image of your Raspberry Pi, you can simply take the card out of you pi, plug it into a laptop running linux, and use this command:
 
-%code
-  $  dd bs=4M if=/dev/mmcblk0 of=2015-03-20-my_stable_pi.img
+%pre
+  = preserve do
+    :escaped
+      $  dd bs=4M if=/dev/mmcblk0 of=2015-03-20-my_stable_pi.img
 
 %p
-  But there's one caveat, see that part where the InputFile is specified as /dev/mmcblk0... that's my SD card reader on my laptop.  Your might be something different, so you'd have to google how to find out how to find out what your Multi Media Card reader is named in your linux distro (hint `lsblk` will show it to you if your card is inserted). 
+  But there's one caveat, see that part where the InputFile is specified as 
+  %code /dev/mmcblk0
+  \... that's my SD card reader on my laptop.  
+  Yours might be something different, 
+  so you'd have to google how to find out how to find out what your Multi Media Card reader is named in your linux distro (hint 
+  %code lsblk 
+  will show it to you if your card is inserted). 
 %p
   There's another caveat:  This image you create can definately be printed back to the original SD card it came from, but if you try it on another SD Card of the same size, it might have bad secotors in it that prevent you from writing all of that .img data you recorded!  That sux!
 
@@ -36,7 +45,8 @@
   Also, that .img file is going to be huge!  Probably as many gigabytes as your SD card can hold.  
 
 %p
-  We can hand onto this backup file for now if you want, but it isn't a good backup solution unless we tweak things by shrinking the ext4 partition before we dump the backup (we might do that later).  
+  We can hang onto this backup file for now since "We did it! We can call it a day!", 
+  but it isn't a good backup solution unless we at least tweak things by shrinking the ext4 partition before we dump the backup (we might do that later).  
 
 %h4 RSync the Files
 %p
@@ -47,7 +57,9 @@
 %p
   But... rsync doesn't generate a bootable SD card image...
   It just copies files...
-  That's not going to help us out very much.  
+  That's not a very holistic backups solution.  
+  And all the 'files' on your pi... there's only a handful of them that are worth saving.  
+  All your source code should already be on github.com or something similar.  
 
 
 
@@ -59,11 +71,22 @@
   you want to be able to get things back to the way they were. 
 
 %p
-  To achieve this, you can keep a record of all the commands you've run on your pi.  The `history >> my_history.txt` command is a great one that allows you to see a record of all the commands you've run (as this user).  There are some caveates, it doesn't show you the commands you've run as root, unless you switch to that user and run the commands.  Also, if you have multiple terminals open at the same time (A, B and C).  when you close B, it will save it's commands to history, but then when you close C, it will over-write everything B saved, so you are left with just the commands terminal C ran.  That's annoying as heck, right?  Oh well, it's best to document the commands you run as you run them anyway.  
+  To achieve this, you can keep a record of all the commands you've run on your pi.  
+  The 
+  %code $  history >> my_history.txt 
+  command is a great one that allows you to see a record of all the commands you've run (as this user).  
+  There are some caveates, it doesn't show you the commands you've run as root, unless you switch to that user and run the commands.  
+  Also, if you have multiple terminals open at the same time (A, B and C).  
+  When you close B, it will save it's commands to history, 
+  but then when you close C, it will over-write everything B saved, 
+  so you are left with just the commands terminal C ran.  
+  That's annoying as heck, right?  
+  Oh well, it's best to document the commands you run as you run them anyway.  
 
 %p
-  It's super awesome when you store your 'recipies' as bash functions and put them on github.  Check out how this user is doing it... he's definately on to something.
-=link_to "install recipees", "https://www.raspberrypi.org/forums/viewtopic.php?f=43&t=53936"
+  It's super awesome when you store your 'recipies' as bash functions and put them on github.  
+  Check out how tjsheffler at Raspberry Pi Forums is doing it... he's definately on to something.
+  =link_to "install recipees", "https://www.raspberrypi.org/forums/viewtopic.php?f=43&t=53936"
 
 
 
