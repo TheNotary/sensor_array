@@ -10,10 +10,10 @@ gem 'thin'
 # to Deploy on heroku, use `HEROKU_DEPLOYING=true bundle install` to create a good Gemfile.lock
 # And then push to heroku
 group :development do
-  gem 'sqlite3' if ENV['HEROKU_DEPLOYMENT'].nil?
+  gem 'sqlite3' # if ENV['HEROKU_DEPLOYMENT'].nil?
 end
 
-gem 'pg' unless ENV['HEROKU_DEPLOYMENT'].nil?
+gem 'pg' # unless ENV['HEROKU_DEPLOYMENT'].nil?
 
 
 # Use SCSS for stylesheets
