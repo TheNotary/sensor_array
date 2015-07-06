@@ -24,70 +24,128 @@
           to Raspberry Pi and 
           =link_to "burn it to an SD Card", "http://www.raspberrypi.org/help/noobs-setup/"
         %li Know that your user name is 'pi' and your password is raspberry until you change it
-        %li Know that there's a `sudo raspi-config` command for configuring frequently configured linux stuff on the pi
-        %li Know that `sudo` is a command for running things as the root user who can do extra special stuff
-        %li Know that you can install software in a manor superior to methods available in windows via `sudo apt-get install NAME-OF-PROGRAM`
-        %li Learn the IP Address of your pi by using the `ifconfig` command
+        %li 
+          Know that there's a 
+          %code sudo raspi-config
+          command for configuring frequently configured Linux stuff on the pi
+        %li 
+          Know that 
+          %code sudo 
+          is a command for running things as the root user who can do extra special stuff
+        %li 
+          Know that you can install software in a manor superior to methods available in windows via...
+          %div
+            %code $  sudo apt-get install NAME-OF-PROGRAM
+        %li 
+          Learn the IP Address of your pi by using the 
+          %code ifconfig
+          command
         %li Know that `ping google.com` can help you check if your pi has a connection to the internet
-        %li Consider opening the 'windows' server by typing `startx` but that's such optional!
+        %li 
+          Consider opening the 'windows' server interface by typing 
+          %code startx 
+          but that's completely optional!
         
     %li
       %h4 SSH:
       %ul
         %li
           %a.btn.btn-lg.btn-danger{ data: { toggle: "popover", 
-            content: "<p>SSH is a program that you run on your laptop or desktop that connects you to a remote linux machine's console.</p>  <p>We use ssh to connect to our raspberry pi so we don't need to attach our Pi to a keyboard and monitor --Just plug in the ethernet cable.</p>  <p>If you don't have a linux latptop/desktop yet, don't worry, you can use the windows program 'putty' until you get more comfortable developing and testing software in a professional manor using professional operating systems.</p>", 
+            content: "<p>SSH is a program that you run on your laptop or desktop that connects you to a remote Linux machine's console.</p>  <p>We use ssh to connect to our raspberry pi so we don't need to attach our Pi to a keyboard and monitor --Just plug in the Ethernet cable.</p>  <p>If you don't have a Linux latptop/desktop yet, don't worry, you can use the windows program 'putty' until you get more comfortable developing and testing software in a professional manor using professional operating systems.</p>", 
             trigger: "focus" }, 
             :role => "button", :tabindex => "0", :title => "x" } REQUIRED READING
             
           
-        %li= link_to "Write ~/.ssh/config file", "/ssh/config"
-        %li Put a new key in ~/.ssh/ using `ssh-keygen`
-        %li Put the new key on the pi in it's ~/.ssh/authorized_keys file using `ssh-copy-id`
-        %li Login, SCP, Mount
+        %li
+          = link_to "Create the configuration file located at ~/.ssh/config", "/ssh/config"
+        %li 
+          On your development laptop/PC, Create a new key in ~/.ssh/ using...
+          %pre
+            = preserve do
+              :escaped
+                $  cd ~/.ssh
+                $  ssh-keygen -t RSA
+                <name it my_pi_rsa or something>
+                <it will create ~/.ssh/my_pi_rsa, and ~/.ssh/my_pi_rsa.pub
+        %li 
+          Put the new key on the pi in it's ~/.ssh/authorized_keys file using...
+          %pre
+            = preserve do
+              :escaped
+                $  ssh-copy-id -i my_pi_rsa pi@192.168.x.x
+                <Change 192.168.x.x to the ip address of your pi>
+                <The IP of a linux machine is displayed when you run `ifconfig`>
+        %li 
+          You're now setup to Login, SCP, and Mount your pi
+          %pre
+            = preserve do
+              :escaped
+                $  ssh my_pi
+                #  This will log you into your pi
+                #  when you run a command here, 
+                #  it's actually run directly on your pi!
+
+                $  scp ~/.bashrc my_pi:/tmp/.
+                #  This command copies the .bashrc file to the 
+                #  /tmp directory of your pi!
+
+                $  mount -t fuse.sshfs my_pi:/tmp /mnt
+                #  If you have sshfs installed, then
+                #  this mounts the /tmp directory of your
+                #  pi onto your local /mnt directory
+                #  you can `cd` into it and `ls` the file contents!
+
         %li 
           Troubleshooting and Advanced:
           %ul
-            %li Config the server
-            %li Config the client
-            %li Look at the logs
-            %li Known Hosts, authorized
+            %li 
+              Config the server via 
+              %code /etc/ssh/sshd_config
+            %li 
+              Config the client via
+              %code /etc/ssh/ssh_config
+            %li 
+              Look at the logs in 
+              %code /var/log/syslog
+            %li 
+              I haven't told you about ~/.ssh/known_hosts, ~/.ssh/authorized_keys files which are created automatically... 
+              some day you'll be prompted about them =)
     %li 
       %h4 Git:
       %ul
-        %li This is the software that lets us right code and deploy it in a hassle free manor
+        %li This is the software that lets us write code and deploy it in a hassle free manor
         %li 
           %a.btn.btn-lg.btn-danger{ data: { toggle: "popover", 
-            content: "<p>Though complex and sophisticated, git is essential to programming.</p>  <p>We use git to deploy our code to target machines.  We use git to ensure that our source code can be modified without permenent damage to the code base.  We use git to make backups of our code and store them either privately or on the cloud.  We use git to share.</p> <p>We need to learn how to use git.  To install git, complete the configuration page of this web application or run `sudo apt-get install git`.</p>", 
+            content: "<p>Though complex and sophisticated, git is essential to programming.</p>  <p>We use git to deploy our code to target machines.  We use git to ensure that our source code can be modified without permanent damage to the code base.  We use git to make backups of our code and store them either privately or on the cloud.  We use git to share.</p> <p>We need to learn how to use git.  To install git, complete the configuration page of this web application or run `sudo apt-get install git`.</p>", 
             trigger: "focus" }, 
             :role => "button", :tabindex => "0", :title => "x" } REQUIRED READING
         %li To clone (download) the repository of the web app you're looking at now: `git clone https://github.com/thenotary/sensor_array`
         %li To save changes you've made to my code: `git add .` and `git commit -m "I made really cool changes"`
         %li To share your changes with the internet: `git push`
-        %li But that last command requires some setup... Perhaps a diagram... a serious tut that I just don't have for you due to time constriants...
+        %li But that last command requires some setup... Perhaps a diagram... a serious tut that I just don't have for you due to time constraints...
         %li Instead... make a diagram and tutorial and commit it to your fork and issue a pull request so I can include it in my app immediately :)
         
     %li 
       %h4 Ruby:
       %ul
         %li 
-          Ruby is one of the most readable programming languages, even to non-native english speakers 
+          Ruby is one of the most readable programming languages, even to non-native English speakers 
           %ul 
-            %li 1) Uses underscore_names instead of camel case or other mean standards of variable naming which leave non-english readers in an unfair and difficult predicament
-            %li 2) Unparralled Stable, reproducable package manager and dependency tracking
-            %li 3) Kind programming comunity with only a few bad apples that's very good at sharing and documenting
-            %li 4) No compile steps required
-            %li 5) Consise and almost identical to Python, though doesn't use it's cool indenting tricks 
-  
-    %li 
+            %li 1) Uses underscore_names instead of camel case or other mean standards of variable naming which leave non-English readers in an unfair and difficult predicament
+            %li 2) Ships with an unparalleled, stable, reproducible package manager and dependency tracker/ fixer
+            %li 3) Kind programming community that likes to share, and only has a few bad apples
+            %li 4) No time wasting compile steps required
+            %li 5) Concise and almost identical to Python, though doesn't use it's interesting indentation tricks out of the box
+
+    %li
       %h4 Rails:
       %ul
-        %li Rails is the web framework for developers
+        %li Rails is the web framework for developers powered by the Ruby programming language
         %li It's an all in one solution that only takes a second to deploy
-        %li You can power rails using conventional fule or clippings of fingernails and hair
+        %li You can power rails using conventional fuel or clippings of fingernails and hair
         %li It's always changing to meet the needs of 'industry professionals' instead of what hackers want
-        %li Hackers don't really like rails so they use sinatra for a couple months after feeling utterly disappointed with the recent rails 'upgrade'
-        %li You cannot use conventional fule to power Sinatra, it only accepts hair and fingernail clippings
+        %li Hackers don't really like rails so they use Sinatra for a couple months after feeling utterly disappointed with the recent rails 'upgrade'
+        %li You cannot use conventional fuel to power Sinatra, it only accepts tufts of hair and fingernail clippings
 
 
 %script
