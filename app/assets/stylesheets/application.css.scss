@@ -12,17 +12,34 @@
  *= require_tree .
  */
 
+ body p, body div, body ol, body ul, body td {
+   font-size: 15px;
+   line-height: 20px;
+ }
+
+ body h4 {
+   font-size: 23px;
+ }
+
+ body h6 {
+   font-size: 15px;
+   color: #A16868;
+ }
+
+.authors-notes {
+  color: #ae8c8c;
+}
 
 .link-button {
     background:none!important;
-     border:none; 
+     border:none;
      padding:5px!important;
-     
-    
+
+
     /*optional*/
     font-family:arial,sans-serif; /*input has OS specific font-family*/
      color:#069;
-     
+
      cursor:pointer;
 }
 
@@ -49,5 +66,3 @@
 li.item {
   text-indent: 15px;
 }
-
-
